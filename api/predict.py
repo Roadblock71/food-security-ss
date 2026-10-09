@@ -1,8 +1,9 @@
 """Vercel Python Function — FastAPI backend for food security risk prediction."""
 import sys
+import traceback
 from pathlib import Path
 
-sys.path.append(str(Path(__file__).resolve().parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import joblib
 import numpy as np
@@ -19,8 +20,12 @@ try:
     bundle = joblib.load(ART / "blend_model.pkl")
     imputer = joblib.load(ART / "imputer.pkl")
     FEATURES = joblib.load(ART / "feature_list.pkl")
-except FileNotFoundError as e:
-    raise RuntimeError(f"Missing model artifact: {e}") from e
+except Exception as e:
+    raise RuntimeError(
+        f"Model artifact load failed at startup: {type(e).__name__}: {e}\n"
+        f"ART directory: {ART}\n"
+        f"ART contents: {sorted(p.name for p in ART.iterdir()) if ART.exists() else 'missing'}"
+    ) from e
 
 app = FastAPI(title="South Sudan Food Security Risk API")
 app.add_middleware(
@@ -63,10 +68,46 @@ def _predict(frame: pd.DataFrame) -> np.ndarray:
     return probs / total_w
 
 
+def _err_response(prefix: str, e: Exception) -> HTTPException:
+    """Build a 500 HTTPException with the full Python traceback in the body."""
+    tb = traceback.format_exc()
+    print(f"=== {prefix} ===")
+    print(tb)
+    return HTTPException(
+        status_code=500,
+        detail=f"{prefix}: {type(e).__name__}: {e}\n\n{tb[-2000:]}",
+    )
+
+
 @app.get("/api/health")
 def health():
-    return {"status": "ok", "features": len(FEATURES),
-            "models": list(bundle["models"])}
+    return {
+        "status": "ok",
+        "features": len(FEATURES),
+        "models": list(bundle["models"]),
+        "artifacts_dir": str(ART),
+        "artifacts_present": sorted(p.name for p in ART.iterdir()) if ART.exists() else [],
+    }
+
+
+@app.get("/api/debug")
+def debug():
+    """Diagnostic endpoint — shows whether history.csv can be loaded."""
+    from model.feature_pipeline import load_history, ART as FP_ART
+    try:
+        hist = load_history()
+        return {
+            "history_loaded": True,
+            "history_rows": int(len(hist)),
+            "history_columns": list(hist.columns),
+            "history_path": str(FP_ART / "history.csv"),
+        }
+    except Exception as e:
+        return {
+            "history_loaded": False,
+            "error": f"{type(e).__name__}: {e}",
+            "traceback": traceback.format_exc()[-1500:],
+        }
 
 
 @app.post("/api/predict", response_model=Prediction)
@@ -75,7 +116,7 @@ def predict(p: Payload):
         frame = build_feature_matrix([p.model_dump()])
         prob = float(_predict(frame)[0])
     except Exception as e:
-        raise HTTPException(status_code=400, detail=str(e))
+        raise _err_response("PREDICT ERROR", e)
     return Prediction(probability=prob, band=_band(prob))
 
 
@@ -83,6 +124,9 @@ def predict(p: Payload):
 def predict_batch(rows: list[Payload]):
     if len(rows) > 200:
         raise HTTPException(status_code=400, detail="Batch limit is 200 rows")
-    frame = build_feature_matrix([r.model_dump() for r in rows])
-    probs = _predict(frame)
-    return [Prediction(probability=float(p), band=_band(float(p))) for p in probs]
+    try:
+        frame = build_feature_matrix([r.model_dump() for r in rows])
+        probs = _predict(frame)
+        return [Prediction(probability=float(p), band=_band(float(p))) for p in probs]
+    except Exception as e:
+        raise _err_response("BATCH ERROR", e)

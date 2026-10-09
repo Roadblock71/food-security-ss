@@ -1,14 +1,14 @@
 {
+  "framework": "nextjs",
+  "buildCommand": "next build",
   "functions": {
     "api/predict.py": {
-      "maxDuration": 60,
       "memory": 1024,
-      "includeFiles": "model/**"
+      "maxDuration": 60,
+      "includeFiles": "{model/**,./model/**,../model/**}"
     }
   },
   "rewrites": [
-    { "source": "/api/health",        "destination": "/api/predict" },
-    { "source": "/api/predict",       "destination": "/api/predict" },
-    { "source": "/api/predict_batch", "destination": "/api/predict" }
+    { "source": "/api/(.*)", "destination": "/api/predict" }
   ]
 }
