@@ -1,7 +1,21 @@
 "use client";
 import Link from "next/link";
+import { Suspense } from "react";
 import CountyGrid from "@/components/CountyGrid";
 import { IconArrow } from "@/components/Icons";
+
+function GridFallback() {
+  return (
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {Array.from({ length: 6 }).map((_, i) => (
+        <div
+          key={i}
+          className="h-32 animate-pulse rounded-2xl bg-[#F1F0EC]"
+        />
+      ))}
+    </div>
+  );
+}
 
 export default function AlertsPage() {
   return (
@@ -27,15 +41,17 @@ export default function AlertsPage() {
           </Link>
           <Link
             href="/counties"
-            className="inline-flex items-center gap-2 rounded-lg border border-[#E7E5E0] bg-white px-4 py-2 text-sm font-medium hover:bg-[#F8F7F4]"
+            className="inline-flex items-center gap-2 rounded-lg border border-[#EBE8E2] bg-white px-4 py-2 text-sm font-medium hover:bg-[#F8F7F4]"
           >
             Browse all counties
           </Link>
         </div>
       </header>
 
-      <div className="rounded-3xl border border-[#E7E5E0] bg-white p-5 shadow-sm sm:p-6">
-        <CountyGrid mode="alerts" showFilters={true} />
+      <div className="rounded-3xl border border-[#EBE8E2] bg-white p-5 shadow-sm sm:p-6">
+        <Suspense fallback={<GridFallback />}>
+          <CountyGrid mode="alerts" showFilters={true} />
+        </Suspense>
       </div>
     </main>
   );
