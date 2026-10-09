@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
-import { geoMercator, geoPath } from "d3-geo";
+import { geoMercator, geoPath, geoBounds } from "d3-geo";
 import ExportButtons from "@/components/ExportButtons";
 import { PredictionRecord } from "@/lib/exporters";
 import countiesJson from "@/data/counties.json";
@@ -45,11 +45,15 @@ interface GeoData {
   features: GeoFeature[];
 }
 
-// Every common name key that could appear in a South Sudan admin-2 GeoJSON.
 const NAME_KEYS = [
-  "admin2Name", "ADM2_EN", "adm2_name", "adm2Name", "ADM2_NAME",
+  "adm2_name", "admin2Name", "ADM2_EN", "adm2Name", "ADM2_NAME",
   "ADM2_EN_1", "name", "NAME_2", "adm2_en", "County",
 ];
+
+// "Raja" (GeoJSON) → "Raga" (our training data)
+const NAME_ALIASES: Record<string, string> = {
+  raja: "raga",
+};
 
 const COLOR = (p: number) =>
   p < 0.35 ? "#16A34A" : p < 0.60 ? "#F59E0B" : p < 0.85 ? "#EA580C" : "#B91C1C";
@@ -61,12 +65,14 @@ const COUNTIES: CountyEntry[] = (countiesJson as RawCounty[]).map((r) => ({
 }));
 
 function normalize(s: string): string {
-  return String(s)
+  let out = String(s)
     .toLowerCase()
     .replace(/[^a-z0-9]/g, "")
     .replace(/(county|state|area)$/, "")
     .replace(/centre/g, "center")
     .trim();
+  if (NAME_ALIASES[out]) out = NAME_ALIASES[out];
+  return out;
 }
 
 function pickName(props: Record<string, unknown>): string {
@@ -86,7 +92,12 @@ export default function MapPage() {
   const [unmatched, setUnmatched] = useState<string[]>([]);
   const [geoData, setGeoData] = useState<GeoData | null>(null);
   const [geoError, setGeoError] = useState<string | null>(null);
-  const [debug, setDebug] = useState<{ features: number; paths: number; bounds: string } | null>(null);
+  const [debug, setDebug] = useState<{
+    features: number;
+    paths: number;
+    lonLatBounds: string;
+    projectedBounds: string;
+  } | null>(null);
 
   const normToCounty = useMemo(() => {
     const map: Record<string, string> = {};
@@ -94,7 +105,7 @@ export default function MapPage() {
     return map;
   }, []);
 
-  // Load GeoJSON
+  // ── Load GeoJSON ───────────────────────────────────────────────────────
   useEffect(() => {
     fetch("/ss_admin2.geojson")
       .then((r) => {
@@ -102,18 +113,19 @@ export default function MapPage() {
         return r.json() as Promise<GeoData>;
       })
       .then((j) => {
-        console.log("[map] GeoJSON loaded:", {
-          type: j.type,
-          features: j.features?.length,
-          firstProps: j.features?.[0]?.properties,
-          firstGeomType: (j.features?.[0]?.geometry as { type?: string } | undefined)?.type,
-        });
+        // Log the raw lon/lat bounds so we can see the coordinate space
+        try {
+          const b = geoBounds(j as never);
+          console.log("[map] raw lon/lat bounds:", b);
+        } catch (e) {
+          console.error("[map] geoBounds failed:", e);
+        }
         setGeoData(j);
       })
       .catch((err) => setGeoError(String(err)));
   }, []);
 
-  // Fetch predictions in two batches
+  // ── Fetch predictions in two batches ───────────────────────────────────
   useEffect(() => {
     (async () => {
       try {
@@ -166,17 +178,15 @@ export default function MapPage() {
   const paths = useMemo<MapPath[]>(() => {
     if (!geoData?.features?.length) return [];
 
-    // ── AUTO-FIT: computes the ideal scale + center from the actual geometry ──
-    let projection;
-    try {
-      projection = geoMercator().fitExtent(
-        [[30, 30], [MAP_W - 30, MAP_H - 30]],
-        geoData as never
-      );
-    } catch (err) {
-      console.error("[map] fitExtent failed, falling back:", err);
-      projection = geoMercator().center([30, 7.5]).scale(2400).translate([MAP_W / 2, MAP_H / 2]);
-    }
+    // ── PROJECTION: use a hand-tuned South Sudan projection.
+    // South Sudan spans roughly lon 24–36°E, lat 3.5–12.5°N.
+    // scale() maps 2π·scale pixels to 360° of longitude.
+    // For 800 px wide with ~12° of longitude → 800 / 12 ≈ 67 px/deg
+    // → scale ≈ 67 * 360 / (2π) ≈ 3840
+    const projection = geoMercator()
+      .center([31.0, 7.5])
+      .scale(2600)
+      .translate([MAP_W / 2, MAP_H / 2]);
 
     const pathGen = geoPath(projection);
     const unmatchedNames: string[] = [];
@@ -203,18 +213,33 @@ export default function MapPage() {
       };
     });
 
-    // Debug snapshot
-    const sampleBounds = (() => {
-      try {
-        const nonEmpty = out.filter((p) => p.d.length > 0);
-        return `${nonEmpty.length}/${out.length} paths have geometry`;
-      } catch { return "unknown"; }
-    })();
+    // Debug info: see where things actually project to
+    let lonLatBounds = "unknown";
+    let projectedBounds = "unknown";
+    try {
+      const b = geoBounds(geoData as never);
+      lonLatBounds = `lon [${b[0][0].toFixed(2)}, ${b[1][0].toFixed(2)}]  lat [${b[0][1].toFixed(2)}, ${b[1][1].toFixed(2)}]`;
+      // Project the four corners of the lon/lat bbox to see the pixel footprint
+      const corners = [
+        projection([b[0][0], b[0][1]]),
+        projection([b[1][0], b[0][1]]),
+        projection([b[0][0], b[1][1]]),
+        projection([b[1][0], b[1][1]]),
+      ].filter(Boolean) as [number, number][];
+      if (corners.length === 4) {
+        const xs = corners.map((c) => c[0]);
+        const ys = corners.map((c) => c[1]);
+        projectedBounds = `x [${Math.min(...xs).toFixed(0)}, ${Math.max(...xs).toFixed(0)}]  y [${Math.min(...ys).toFixed(0)}, ${Math.max(...ys).toFixed(0)}]`;
+      }
+    } catch (e) {
+      console.error("[map] bounds computation failed:", e);
+    }
 
     setDebug({
       features: geoData.features.length,
       paths: out.filter((p) => p.d.length > 0).length,
-      bounds: sampleBounds,
+      lonLatBounds,
+      projectedBounds,
     });
 
     setUnmatched((prev) => {
@@ -276,9 +301,13 @@ export default function MapPage() {
         {geoData && (
           <svg
             viewBox={`0 0 ${MAP_W} ${MAP_H}`}
-            width="100%"
-            height="auto"
-            style={{ display: "block", background: "#F8F7F4", borderRadius: 8 }}
+            style={{
+              display: "block",
+              width: "100%",
+              height: "auto",
+              background: "#F8F7F4",
+              borderRadius: 8,
+            }}
           >
             {paths.map((p: MapPath) => (
               <path
@@ -286,7 +315,7 @@ export default function MapPage() {
                 d={p.d}
                 fill={p.d ? COLOR(p.prob) : "#E7E5E0"}
                 stroke="#ffffff"
-                strokeWidth={0.6}
+                strokeWidth={0.5}
                 onMouseEnter={() =>
                   setHover(
                     p.matchedCounty
@@ -325,12 +354,12 @@ export default function MapPage() {
         </p>
       )}
 
-      {/* Debug panel — always visible while we diagnose */}
+      {/* Diagnostic panel */}
       {debug && (
-        <div className="mt-4 rounded-lg border border-[#E7E5E0] bg-[#F8F7F4] p-3 text-xs font-mono text-[#57534E]">
-          <div>GeoJSON features: {debug.features}</div>
-          <div>Paths with geometry: {debug.paths}</div>
-          <div>{debug.bounds}</div>
+        <div className="mt-4 space-y-1 rounded-lg border border-[#E7E5E0] bg-[#F8F7F4] p-3 text-xs font-mono text-[#57534E]">
+          <div>features: {debug.features} · paths with geometry: {debug.paths}</div>
+          <div>lon/lat bounds: {debug.lonLatBounds}</div>
+          <div>projected bounds: {debug.projectedBounds}</div>
         </div>
       )}
 
