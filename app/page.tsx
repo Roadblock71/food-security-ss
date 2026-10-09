@@ -5,7 +5,8 @@ import countiesJson from "@/data/counties.json";
 import RiskGauge from "@/components/RiskGauge";
 import MetricCard from "@/components/MetricCard";
 import {
-  IconAlert, IconTrend, IconEye, IconArrow, IconGauge, IconMap,
+  IconAlert, IconTrend, IconEye, IconShield,
+  IconArrow, IconGauge, IconMap,
 } from "@/components/Icons";
 import { useWatchlist } from "@/components/Watchlist";
 
@@ -77,21 +78,29 @@ export default function Overview() {
   }, []);
 
   const national = useMemo(() => {
-    if (!scored.length)
-      return { avg: 0, veryHigh: 0, high: 0, top: [] as ScoredCounty[] };
+    if (!scored.length) {
+      return {
+        avg: 0, veryHigh: 0, high: 0, moderate: 0, low: 0,
+        top: [] as ScoredCounty[],
+      };
+    }
     const avg = scored.reduce((s, c) => s + c.probability, 0) / scored.length;
     const sorted = [...scored].sort((a, b) => b.probability - a.probability);
     return {
       avg,
       veryHigh: scored.filter((c) => c.probability >= 0.85).length,
-      high: scored.filter((c) => c.probability >= 0.60 && c.probability < 0.85).length,
-      top: sorted.slice(0, 5),
+      high:     scored.filter((c) => c.probability >= 0.60 && c.probability < 0.85).length,
+      moderate: scored.filter((c) => c.probability >= 0.35 && c.probability < 0.60).length,
+      low:      scored.filter((c) => c.probability < 0.35).length,
+      top:      sorted.slice(0, 5),
     };
   }, [scored]);
 
+  const total = scored.length || COUNTIES.length;
+
   return (
     <main className="px-4 py-6 sm:px-6 sm:py-10">
-      {/* Hero */}
+      {/* ── Hero ──────────────────────────────────────────── */}
       <section className="grid gap-6 overflow-hidden rounded-3xl border border-[#EBE8E2] bg-gradient-to-br from-white via-white to-[#F5F3EF] p-6 shadow-[0_1px_3px_rgba(0,0,0,0.03)] sm:p-8 md:grid-cols-[minmax(0,1fr)_300px] md:items-center">
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-[#1E3A8A]">
@@ -129,45 +138,70 @@ export default function Overview() {
         </div>
       </section>
 
-      {/* KPIs */}
+      {/* ── Risk spectrum KPIs ─────────────────────────────── */}
       <section className="mt-6 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         <MetricCard
           icon={<IconAlert className="h-4 w-4" />}
           label="Very high"
           value={loading ? "—" : String(national.veryHigh)}
-          sub="≥ 85% predicted risk"
+          sub="≥ 85% predicted"
           accent="bg-[#FEF2F2] text-[#991B1B]"
-          bar={loading ? 0 : national.veryHigh / Math.max(1, scored.length)}
+          bar={loading ? 0 : national.veryHigh / Math.max(1, total)}
           barColor="#B91C1C"
         />
         <MetricCard
           icon={<IconTrend className="h-4 w-4" />}
-          label="High risk"
+          label="High"
           value={loading ? "—" : String(national.high)}
           sub="60 – 85% predicted"
           accent="bg-[#FFF7ED] text-[#9A3412]"
-          bar={loading ? 0 : national.high / Math.max(1, scored.length)}
+          bar={loading ? 0 : national.high / Math.max(1, total)}
           barColor="#EA580C"
         />
         <MetricCard
           icon={<IconEye className="h-4 w-4" />}
-          label="In watchlist"
-          value={hydrated ? String(watched.size) : "—"}
-          sub="Close-monitoring list"
-          accent="bg-[#FEF3C7] text-[#B45309]"
+          label="Moderate"
+          value={loading ? "—" : String(national.moderate)}
+          sub="35 – 60% predicted"
+          accent="bg-[#FFFBEB] text-[#92400E]"
+          bar={loading ? 0 : national.moderate / Math.max(1, total)}
+          barColor="#F59E0B"
         />
         <MetricCard
-          icon={<IconTrend className="h-4 w-4" />}
-          label="Mean AUC"
-          value="0.978"
-          sub="Walk-forward validation"
-          accent="bg-[#EEF2FF] text-[#1E3A8A]"
-          bar={0.978}
-          barColor="#1E3A8A"
+          icon={<IconShield className="h-4 w-4" />}
+          label="Low"
+          value={loading ? "—" : String(national.low)}
+          sub="< 35% predicted"
+          accent="bg-[#F0FDF4] text-[#166534]"
+          bar={loading ? 0 : national.low / Math.max(1, total)}
+          barColor="#16A34A"
         />
       </section>
 
-      {/* Top counties */}
+      {/* ── Info strip ─────────────────────────────────────── */}
+      <section className="mt-3 flex flex-wrap items-center gap-x-6 gap-y-1.5 rounded-xl border border-[#EBE8E2] bg-white px-4 py-3 text-xs text-[#57534E]">
+        <span>
+          <strong className="font-semibold text-[#1C1917]">
+            {loading ? "—" : total}
+          </strong>{" "}
+          counties covered
+        </span>
+        <span className="hidden text-[#D6D3CD] sm:inline">·</span>
+        <span>
+          <strong className="font-semibold text-[#1C1917]">
+            {hydrated ? watched.size : "—"}
+          </strong>{" "}
+          in watchlist
+        </span>
+        <span className="hidden text-[#D6D3CD] sm:inline">·</span>
+        <span>
+          Mean AUC{" "}
+          <strong className="font-semibold text-[#1C1917]">0.978</strong>{" "}
+          <span className="text-[#A8A29E]">(walk-forward)</span>
+        </span>
+      </section>
+
+      {/* ── Top priority counties ──────────────────────────── */}
       <section className="mt-8 rounded-3xl border border-[#EBE8E2] bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] sm:p-6">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
