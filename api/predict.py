@@ -1,4 +1,5 @@
 """Vercel Python Function — FastAPI backend for food security risk prediction."""
+import json
 import sys
 import traceback
 from pathlib import Path
@@ -16,16 +17,35 @@ from model.feature_pipeline import build_feature_matrix
 
 ART = Path(__file__).resolve().parent.parent / "model" / "artifacts"
 
+# ── Load the RF model (pickle) ──
 try:
     bundle = joblib.load(ART / "blend_model.pkl")
-    imputer = joblib.load(ART / "imputer.pkl")
     FEATURES = joblib.load(ART / "feature_list.pkl")
 except Exception as e:
     raise RuntimeError(
-        f"Model artifact load failed at startup: {type(e).__name__}: {e}\n"
-        f"ART directory: {ART}\n"
-        f"ART contents: {sorted(p.name for p in ART.iterdir()) if ART.exists() else 'missing'}"
+        f"Model artifact load failed: {type(e).__name__}: {e}\n"
+        f"ART dir contents: "
+        f"{sorted(p.name for p in ART.iterdir()) if ART.exists() else 'missing'}"
     ) from e
+
+# ── Load the imputer medians (JSON — no sklearn pickle issues) ──
+try:
+    with open(ART / "imputer_medians.json") as f:
+        IMPUTER_MEDIANS: dict = json.load(f)
+except Exception as e:
+    raise RuntimeError(
+        f"imputer_medians.json load failed: {type(e).__name__}: {e}"
+    ) from e
+
+
+def _impute(X: pd.DataFrame) -> np.ndarray:
+    """Median-impute using saved JSON values. Pure pandas — no sklearn version issues."""
+    X = X.copy()
+    for col, val in IMPUTER_MEDIANS.items():
+        if col in X.columns:
+            X[col] = X[col].fillna(val)
+    return X.to_numpy(dtype=float)
+
 
 app = FastAPI(title="South Sudan Food Security Risk API")
 app.add_middleware(
@@ -59,7 +79,7 @@ def _band(p: float) -> str:
 
 
 def _predict(frame: pd.DataFrame) -> np.ndarray:
-    X = imputer.transform(frame[FEATURES])
+    X = _impute(frame[FEATURES])
     X_df = pd.DataFrame(X, columns=FEATURES)
     probs = np.zeros(len(X_df))
     total_w = sum(bundle["weights"].values())
@@ -69,7 +89,6 @@ def _predict(frame: pd.DataFrame) -> np.ndarray:
 
 
 def _err_response(prefix: str, e: Exception) -> HTTPException:
-    """Build a 500 HTTPException with the full Python traceback in the body."""
     tb = traceback.format_exc()
     print(f"=== {prefix} ===")
     print(tb)
@@ -85,14 +104,13 @@ def health():
         "status": "ok",
         "features": len(FEATURES),
         "models": list(bundle["models"]),
-        "artifacts_dir": str(ART),
+        "imputer_medians_loaded": len(IMPUTER_MEDIANS),
         "artifacts_present": sorted(p.name for p in ART.iterdir()) if ART.exists() else [],
     }
 
 
 @app.get("/api/debug")
 def debug():
-    """Diagnostic endpoint — shows whether history.csv can be loaded."""
     from model.feature_pipeline import load_history, ART as FP_ART
     try:
         hist = load_history()
@@ -101,6 +119,8 @@ def debug():
             "history_rows": int(len(hist)),
             "history_columns": list(hist.columns),
             "history_path": str(FP_ART / "history.csv"),
+            "medians_count": len(IMPUTER_MEDIANS),
+            "medians_sample": dict(list(IMPUTER_MEDIANS.items())[:3]),
         }
     except Exception as e:
         return {
