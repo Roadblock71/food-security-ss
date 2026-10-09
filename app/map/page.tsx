@@ -9,12 +9,32 @@ import countiesJson from "@/data/counties.json";
 
 interface Prediction { probability: number; band: string }
 
+interface RawCounty {
+  state: string;
+  county: string;
+  population: number;
+  start_year: number;
+  start_month: number;
+  prior_period_ipc_phase: string;
+  prior_period_phase3plus_pct: number;
+  prior_year_cereal_production_tonnes: number;
+  prior_year_cereal_gap_tonnes: number;
+}
+
+interface CountyEntry {
+  state: string;
+  county: string;
+  payload: RawCounty;
+}
+
 const COLOR = (p: number) =>
   p < 0.35 ? "#10b981" : p < 0.60 ? "#eab308" : p < 0.85 ? "#f97316" : "#dc2626";
 
-const COUNTIES = countiesJson as Array<{
-  state: string; county: string; payload: any;
-}>;
+const COUNTIES: CountyEntry[] = (countiesJson as RawCounty[]).map((r) => ({
+  state: r.state,
+  county: r.county,
+  payload: r,
+}));
 
 function normalize(s: string): string {
   return s
@@ -88,7 +108,7 @@ export default function MapPage() {
 
       <div className="mt-8 rounded-xl border bg-white p-4 shadow-sm">
         <ComposableMap projection="geoMercator"
-          projectionConfig={{ center: [30, 7.5], scale: 2600 }}
+          projectionConfig={{ center: [30, 7.5], scale: 1800 }}
           width={800} height={700}>
           <ZoomableGroup>
             <Geographies geography="/ss_admin2.geojson">
