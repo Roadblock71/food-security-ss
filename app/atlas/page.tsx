@@ -102,10 +102,10 @@ export default function RegionsPage() {
   return (
     <main className="px-4 py-6 sm:px-6 sm:py-10">
       <header className="mb-6">
-        <p className="text-xs font-semibold uppercase tracking-widest text-[#1E3A8A]">
+        <p className="text-xs font-semibold uppercase tracking-widest text-[#0D9488]">
           Regional view
         </p>
-        <h1 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
+        <h1 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
           State &amp; county matrix
         </h1>
         <p className="mt-2 max-w-2xl text-sm text-[#57534E]">
@@ -116,7 +116,7 @@ export default function RegionsPage() {
           <select
             value={stateFilter}
             onChange={(e) => setStateFilter(e.target.value)}
-            className="rounded-md border border-[#E7E5E0] bg-white px-3 py-1.5 text-xs outline-none focus:border-[#1E3A8A] focus:ring-1 focus:ring-[#1E3A8A]/30"
+            className="rounded-md border border-[#EBE8E2] bg-white px-3 py-1.5 text-xs outline-none transition-colors focus:border-[#0D9488] focus:ring-1 focus:ring-[#0D9488]/30"
           >
             <option>All states</option>
             {STATES.map((s) => (
@@ -155,7 +155,7 @@ export default function RegionsPage() {
             return (
               <section
                 key={g.state}
-                className="rounded-3xl border border-[#E7E5E0] bg-white p-5 shadow-sm sm:p-6"
+                className="rounded-3xl border border-[#EBE8E2] bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] sm:p-6"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div>
@@ -190,7 +190,7 @@ export default function RegionsPage() {
                   {g.counties.map((c) => (
                     <div
                       key={c.county}
-                      className="rounded-xl border border-[#E7E5E0] bg-[#F8F7F4] p-2.5"
+                      className="rounded-xl border border-[#EBE8E2] bg-[#F8F7F4] p-2.5"
                     >
                       <div className="truncate text-xs font-medium text-[#1C1917]">
                         {c.county}
@@ -220,7 +220,7 @@ export default function RegionsPage() {
         </div>
       )}
 
-      <section className="mt-8 rounded-3xl border border-[#E7E5E0] bg-white p-5 shadow-sm sm:p-6">
+      <section className="mt-8 rounded-3xl border border-[#EBE8E2] bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] sm:p-6">
         <h2 className="text-lg font-semibold tracking-tight">How to read this</h2>
         <p className="mt-2 text-sm text-[#57534E]">
           Each card is a state. Chips inside it are the counties, sorted by
@@ -231,7 +231,7 @@ export default function RegionsPage() {
         <div className="mt-4">
           <Link
             href="/counties"
-            className="inline-flex items-center gap-2 rounded-lg bg-[#1E3A8A] px-4 py-2 text-sm font-medium text-white hover:bg-[#1E40AF]"
+            className="inline-flex items-center gap-2 rounded-lg bg-[#1E3A8A] px-4 py-2 text-sm font-medium text-white shadow-[0_1px_2px_rgba(30,58,138,0.20)] hover:bg-[#1E40AF]"
           >
             Open full county list <IconArrow className="h-4 w-4" />
           </Link>
