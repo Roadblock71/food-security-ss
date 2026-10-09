@@ -1,0 +1,6291 @@
+{
+  "counties": {
+    "Abyei||Abyei": {
+      "state": "Abyei",
+      "county": "Abyei",
+      "points": [
+        {
+          "period": "2023-12",
+          "pct": 49.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 30.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 55.5,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Central Equatoria||Juba": {
+      "state": "Central Equatoria",
+      "county": "Juba",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 45.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 50.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 49.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 59.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 44.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 34.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 55.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 50.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 30.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 55.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 50.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 45.1,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Central Equatoria||Kajo Keji": {
+      "state": "Central Equatoria",
+      "county": "Kajo Keji",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 64.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-02",
+          "pct": 59.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 59.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 64.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 40.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 35.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 60.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 55.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 50.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 59.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 50.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 39.9,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Central Equatoria||Lainya": {
+      "state": "Central Equatoria",
+      "county": "Lainya",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 49.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 55.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 55.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 44.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 35.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 29.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 40.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 54.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 49.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 59.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 55.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 44.7,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Central Equatoria||Morobo": {
+      "state": "Central Equatoria",
+      "county": "Morobo",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 34.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 34.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 44.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 35.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 30.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 19.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 35.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 50.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 40.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 55.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 45.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 34.9,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Central Equatoria||Terekeka": {
+      "state": "Central Equatoria",
+      "county": "Terekeka",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 30.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 40.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 60.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 70.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 40.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 50.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 59.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 44.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 30.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 44.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 44.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 35.4,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Central Equatoria||Yei": {
+      "state": "Central Equatoria",
+      "county": "Yei",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 50.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 45.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 45.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 35.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 35.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 30.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 44.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 29.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 29.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 40.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 45.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 29.9,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Eastern Equatoria||Budi": {
+      "state": "Eastern Equatoria",
+      "county": "Budi",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 40.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 45.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 50.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 39.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 55.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 55.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 64.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 44.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 45.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 55.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 35.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 50.1,
+          "phase": "Emergency"
+        }
+      ]
+    },
+    "Eastern Equatoria||Ikotos": {
+      "state": "Eastern Equatoria",
+      "county": "Ikotos",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 24.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 29.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 55.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 44.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 49.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 44.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 49.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 39.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 29.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 44.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 43.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 35.6,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Eastern Equatoria||Kapoeta East": {
+      "state": "Eastern Equatoria",
+      "county": "Kapoeta East",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 54.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 54.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 59.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 64.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 54.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 64.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 69.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 40.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 30.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 45.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 49.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 60.1,
+          "phase": "Emergency"
+        }
+      ]
+    },
+    "Eastern Equatoria||Kapoeta North": {
+      "state": "Eastern Equatoria",
+      "county": "Kapoeta North",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 54.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-02",
+          "pct": 49.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 54.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 64.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 50.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 54.6,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 59.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 44.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 39.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 64.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 40.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 54.8,
+          "phase": "Emergency"
+        }
+      ]
+    },
+    "Eastern Equatoria||Kapoeta South": {
+      "state": "Eastern Equatoria",
+      "county": "Kapoeta South",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 55.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-02",
+          "pct": 50.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 45.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 49.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 44.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 54.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 59.6,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 25.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 20.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 25.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 35.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 45.5,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Eastern Equatoria||Lafon": {
+      "state": "Eastern Equatoria",
+      "county": "Lafon",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 54.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 44.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 45.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 60.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 45.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 40.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 45.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 55.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-04",
+          "pct": 59.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-09",
+          "pct": 64.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 34.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 49.6,
+          "phase": "Emergency"
+        }
+      ]
+    },
+    "Eastern Equatoria||Magwi": {
+      "state": "Eastern Equatoria",
+      "county": "Magwi",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 29.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 25.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 20.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 24.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 20.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 24.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 30.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 15.1,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2024-04",
+          "pct": 15.1,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2024-09",
+          "pct": 25.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 43.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 15.1,
+          "phase": "Stressed"
+        }
+      ]
+    },
+    "Eastern Equatoria||Torit": {
+      "state": "Eastern Equatoria",
+      "county": "Torit",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 25.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 35.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 39.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 49.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 34.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 39.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 49.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 35.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 30.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 44.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 60.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 40.0,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Jonglei||Akobo": {
+      "state": "Jonglei",
+      "county": "Akobo",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 75.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-02",
+          "pct": 75.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 60.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 70.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 85.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 74.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 79.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 64.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 74.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-09",
+          "pct": 74.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 55.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 54.7,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Jonglei||Ayod": {
+      "state": "Jonglei",
+      "county": "Ayod",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 80.3,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-02",
+          "pct": 80.3,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 85.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 90.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 70.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 64.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 84.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 59.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 64.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-09",
+          "pct": 75.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 39.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 50.3,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Jonglei||Bor South": {
+      "state": "Jonglei",
+      "county": "Bor South",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 60.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 65.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 65.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 70.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 50.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 45.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 60.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 14.9,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2024-04",
+          "pct": 14.9,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2024-09",
+          "pct": 29.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 19.1,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2025-04",
+          "pct": 9.9,
+          "phase": "Stressed"
+        }
+      ]
+    },
+    "Jonglei||Canal/Pigi": {
+      "state": "Jonglei",
+      "county": "Canal/Pigi",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 70.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-02",
+          "pct": 75.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 85.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 90.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 75.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 75.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 79.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 77.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-04",
+          "pct": 67.3,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-09",
+          "pct": 84.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 54.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 64.6,
+          "phase": "Emergency"
+        }
+      ]
+    },
+    "Jonglei||Duk": {
+      "state": "Jonglei",
+      "county": "Duk",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 74.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-02",
+          "pct": 79.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 60.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 70.3,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 55.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 55.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 60.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 74.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-04",
+          "pct": 74.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-09",
+          "pct": 83.6,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 55.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 49.4,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Jonglei||Fangak": {
+      "state": "Jonglei",
+      "county": "Fangak",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 69.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-02",
+          "pct": 75.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 85.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 90.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 80.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 80.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 90.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 64.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-04",
+          "pct": 70.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-09",
+          "pct": 74.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 58.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2025-04",
+          "pct": 64.9,
+          "phase": "Emergency"
+        }
+      ]
+    },
+    "Jonglei||Nyirol": {
+      "state": "Jonglei",
+      "county": "Nyirol",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 80.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-02",
+          "pct": 84.6,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 75.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 80.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 75.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 65.3,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 75.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 74.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-04",
+          "pct": 74.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-09",
+          "pct": 80.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 79.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2025-04",
+          "pct": 60.3,
+          "phase": "Emergency"
+        }
+      ]
+    },
+    "Jonglei||Pibor": {
+      "state": "Jonglei",
+      "county": "Pibor",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 69.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-02",
+          "pct": 64.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 84.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 90.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 74.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 74.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 80.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 75.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-04",
+          "pct": 65.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-09",
+          "pct": 80.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 77.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2025-04",
+          "pct": 75.0,
+          "phase": "Emergency"
+        }
+      ]
+    },
+    "Jonglei||Pochalla": {
+      "state": "Jonglei",
+      "county": "Pochalla",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 45.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 55.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 40.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 50.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 45.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 40.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 60.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 63.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 49.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 58.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 54.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 44.4,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Jonglei||Twic East": {
+      "state": "Jonglei",
+      "county": "Twic East",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 65.6,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-02",
+          "pct": 70.6,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 74.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 80.6,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 70.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 60.3,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 75.6,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 50.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 39.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 50.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 58.6,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2025-04",
+          "pct": 65.3,
+          "phase": "Emergency"
+        }
+      ]
+    },
+    "Jonglei||Uror": {
+      "state": "Jonglei",
+      "county": "Uror",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 69.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-02",
+          "pct": 75.3,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 75.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 80.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 70.3,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 65.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 75.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 74.6,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-04",
+          "pct": 59.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-09",
+          "pct": 65.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 40.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 59.9,
+          "phase": "Emergency"
+        }
+      ]
+    },
+    "Lakes||Awerial": {
+      "state": "Lakes",
+      "county": "Awerial",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 60.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 65.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 50.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 55.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 60.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 55.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 65.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 49.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 44.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 65.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 42.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 40.0,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Lakes||Cueibet": {
+      "state": "Lakes",
+      "county": "Cueibet",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 70.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 74.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 64.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 74.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 60.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 49.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 59.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 55.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 40.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 54.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 49.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 30.0,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Lakes||Rumbek Centre": {
+      "state": "Lakes",
+      "county": "Rumbek Centre",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 54.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 59.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 45.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 59.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 54.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 45.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 59.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 60.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 49.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 60.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 50.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 39.7,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Lakes||Rumbek East": {
+      "state": "Lakes",
+      "county": "Rumbek East",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 65.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 70.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 49.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 60.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 54.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 54.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 65.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 50.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 50.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 65.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 46.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 49.6,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Lakes||Rumbek North": {
+      "state": "Lakes",
+      "county": "Rumbek North",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 75.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-02",
+          "pct": 75.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 64.6,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 75.6,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 64.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 60.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 64.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 64.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 59.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 64.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 41.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 50.3,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Lakes||Wulu": {
+      "state": "Lakes",
+      "county": "Wulu",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 14.6,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2022-02",
+          "pct": 19.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 44.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 50.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 44.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 39.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 54.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 54.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 44.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 49.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 40.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 14.9,
+          "phase": "Stressed"
+        }
+      ]
+    },
+    "Lakes||Yirol East": {
+      "state": "Lakes",
+      "county": "Yirol East",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 65.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-02",
+          "pct": 75.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 44.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 54.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 54.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 54.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 64.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 45.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 45.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 54.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 45.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 34.6,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Lakes||Yirol West": {
+      "state": "Lakes",
+      "county": "Yirol West",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 45.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 60.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 55.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 65.3,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 60.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 54.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 60.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 49.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 54.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 59.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 41.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 50.3,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Northern Bahr El Ghazal||Aweil Centre": {
+      "state": "Northern Bahr El Ghazal",
+      "county": "Aweil Centre",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 55.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 60.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 46.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 59.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 64.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 53.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 69.6,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 24.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 29.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 34.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 42.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 19.8,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Northern Bahr El Ghazal||Aweil East": {
+      "state": "Northern Bahr El Ghazal",
+      "county": "Aweil East",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 65.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 65.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 60.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 69.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 65.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 59.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 75.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 49.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-04",
+          "pct": 54.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-09",
+          "pct": 64.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 60.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2025-04",
+          "pct": 40.1,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Northern Bahr El Ghazal||Aweil North": {
+      "state": "Northern Bahr El Ghazal",
+      "county": "Aweil North",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 65.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-02",
+          "pct": 65.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 54.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 59.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 59.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 55.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 70.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 45.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 50.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 55.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 65.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2025-04",
+          "pct": 44.9,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Northern Bahr El Ghazal||Aweil South": {
+      "state": "Northern Bahr El Ghazal",
+      "county": "Aweil South",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 54.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 59.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 59.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 69.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 64.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 54.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 65.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 50.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-04",
+          "pct": 55.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-09",
+          "pct": 60.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 49.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 50.0,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Northern Bahr El Ghazal||Aweil West": {
+      "state": "Northern Bahr El Ghazal",
+      "county": "Aweil West",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 55.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 65.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 55.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 65.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 54.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 55.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 65.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 45.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 50.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 55.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 49.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 39.9,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Unity||Abiemnhom": {
+      "state": "Unity",
+      "county": "Abiemnhom",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 53.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 59.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 56.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 59.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 50.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 50.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 66.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 44.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 49.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 58.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 74.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 53.1,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Unity||Guit": {
+      "state": "Unity",
+      "county": "Guit",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 60.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 69.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 54.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 74.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 55.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 61.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 71.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 58.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 64.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-09",
+          "pct": 68.6,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 70.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 79.8,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Unity||Koch": {
+      "state": "Unity",
+      "county": "Koch",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 65.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 70.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 80.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 84.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 64.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 60.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 75.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 59.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 59.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-09",
+          "pct": 64.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 66.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 60.3,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Unity||Leer": {
+      "state": "Unity",
+      "county": "Leer",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 55.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 60.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 79.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 85.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 74.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 79.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 90.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 60.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 65.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 69.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 61.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 65.3,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Unity||Mayendit": {
+      "state": "Unity",
+      "county": "Mayendit",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 54.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 65.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 86.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 94.6,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 80.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 78.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 90.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 65.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 69.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 74.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 41.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 65.8,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Unity||Mayom": {
+      "state": "Unity",
+      "county": "Mayom",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 60.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 64.6,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 65.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 74.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 54.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 50.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 65.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 40.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 45.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 55.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 45.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 44.9,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Unity||Panyijiar": {
+      "state": "Unity",
+      "county": "Panyijiar",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 69.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 74.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 75.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 80.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 59.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 74.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 79.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 55.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 60.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 65.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 49.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 59.4,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Unity||Pariang": {
+      "state": "Unity",
+      "county": "Pariang",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 40.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 54.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 70.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 80.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 55.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 54.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 65.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 40.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 44.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 49.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 75.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2025-04",
+          "pct": 49.3,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Unity||Rubkona": {
+      "state": "Unity",
+      "county": "Rubkona",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 40.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 55.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 60.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 75.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 80.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 80.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 85.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 74.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-04",
+          "pct": 80.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-09",
+          "pct": 80.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 68.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2025-04",
+          "pct": 80.4,
+          "phase": "Emergency"
+        }
+      ]
+    },
+    "Upper Nile||Baliet": {
+      "state": "Upper Nile",
+      "county": "Baliet",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 53.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 64.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 58.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 69.3,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 55.3,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 60.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 63.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 57.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 50.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 57.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 65.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 59.6,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Upper Nile||Fashoda": {
+      "state": "Upper Nile",
+      "county": "Fashoda",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 49.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 59.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 49.6,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 60.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 59.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 65.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 75.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 61.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 64.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 70.6,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 45.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 41.2,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Upper Nile||Longochuk": {
+      "state": "Upper Nile",
+      "county": "Longochuk",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 64.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 75.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 49.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 60.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 60.3,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 65.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 80.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 65.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 61.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 70.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 56.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 44.1,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Upper Nile||Luakpiny/Nasir": {
+      "state": "Upper Nile",
+      "county": "Luakpiny/Nasir",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 69.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-02",
+          "pct": 74.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 65.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 75.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 65.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 64.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 79.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 55.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 55.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 64.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 65.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2025-04",
+          "pct": 60.2,
+          "phase": "Emergency"
+        }
+      ]
+    },
+    "Upper Nile||Maban": {
+      "state": "Upper Nile",
+      "county": "Maban",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 59.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 65.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 45.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 55.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 50.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 40.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 55.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 50.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 55.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 65.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 55.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 49.9,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Upper Nile||Maiwut": {
+      "state": "Upper Nile",
+      "county": "Maiwut",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 59.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-02",
+          "pct": 69.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 70.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 79.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 59.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 60.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 70.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 55.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 50.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 58.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 45.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 40.7,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Upper Nile||Malakal": {
+      "state": "Upper Nile",
+      "county": "Malakal",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 65.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-02",
+          "pct": 70.3,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 54.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 75.3,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 65.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 70.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 80.3,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 49.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 53.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 64.3,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 69.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2025-04",
+          "pct": 64.9,
+          "phase": "Emergency"
+        }
+      ]
+    },
+    "Upper Nile||Manyo": {
+      "state": "Upper Nile",
+      "county": "Manyo",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 60.3,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-02",
+          "pct": 74.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 40.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 50.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 60.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 70.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 75.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 50.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 50.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 60.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 50.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 47.5,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Upper Nile||Melut": {
+      "state": "Upper Nile",
+      "county": "Melut",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 55.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 59.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 49.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 60.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 50.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 50.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 65.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 66.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 59.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 70.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 45.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 39.7,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Upper Nile||Panyikang": {
+      "state": "Upper Nile",
+      "county": "Panyikang",
+      "points": [
+        {
+          "period": "2020-01",
+          "pct": 33.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2020-01",
+          "pct": 55.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2020-02",
+          "pct": 44.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2020-05",
+          "pct": 60.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-02",
+          "pct": 64.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 64.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 74.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 67.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 70.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-09",
+          "pct": 73.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 65.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2025-04",
+          "pct": 61.3,
+          "phase": "Emergency"
+        }
+      ]
+    },
+    "Upper Nile||Renk": {
+      "state": "Upper Nile",
+      "county": "Renk",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 40.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 49.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 39.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 50.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 45.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 35.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 44.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 56.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 66.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-09",
+          "pct": 74.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 50.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 39.9,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Upper Nile||Ulang": {
+      "state": "Upper Nile",
+      "county": "Ulang",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 64.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-02",
+          "pct": 70.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 49.6,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 59.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 65.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 70.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 70.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 64.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 59.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 69.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 60.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 49.6,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Warrap||Gogrial East": {
+      "state": "Warrap",
+      "county": "Gogrial East",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 40.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 49.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 55.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 64.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 54.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 60.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 64.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 35.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 44.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 55.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 45.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 54.7,
+          "phase": "Emergency"
+        }
+      ]
+    },
+    "Warrap||Gogrial West": {
+      "state": "Warrap",
+      "county": "Gogrial West",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 44.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 55.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 54.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 65.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 54.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 49.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 65.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 40.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 45.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 54.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 40.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 50.0,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Warrap||Tonj East": {
+      "state": "Warrap",
+      "county": "Tonj East",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 55.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 59.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 70.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 75.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 54.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 49.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 69.8,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 29.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 40.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 55.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 40.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 49.9,
+          "phase": "Emergency"
+        }
+      ]
+    },
+    "Warrap||Tonj North": {
+      "state": "Warrap",
+      "county": "Tonj North",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 40.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 49.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 70.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 74.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 55.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 60.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 64.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 35.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 39.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 50.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 35.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 45.1,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Warrap||Tonj South": {
+      "state": "Warrap",
+      "county": "Tonj South",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 54.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 60.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-04",
+          "pct": 65.3,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 75.4,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 55.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 65.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 70.2,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 35.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 40.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 49.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 25.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 35.6,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Warrap||Twic": {
+      "state": "Warrap",
+      "county": "Twic",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 40.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 49.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 65.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 69.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 65.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-04",
+          "pct": 65.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-09",
+          "pct": 74.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2023-12",
+          "pct": 45.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 55.1,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-09",
+          "pct": 65.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2024-12",
+          "pct": 45.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 54.7,
+          "phase": "Emergency"
+        }
+      ]
+    },
+    "Western Bahr El Ghazal||Jur River": {
+      "state": "Western Bahr El Ghazal",
+      "county": "Jur River",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 9.9,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2022-02",
+          "pct": 20.1,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2022-04",
+          "pct": 30.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 39.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 45.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 34.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 50.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 44.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 35.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 50.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 25.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 14.7,
+          "phase": "Stressed"
+        }
+      ]
+    },
+    "Western Bahr El Ghazal||Raga": {
+      "state": "Western Bahr El Ghazal",
+      "county": "Raga",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 60.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 65.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 25.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 35.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 45.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 45.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 50.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 45.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 35.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 54.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 55.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 44.3,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Western Bahr El Ghazal||Wau": {
+      "state": "Western Bahr El Ghazal",
+      "county": "Wau",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 54.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 64.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 30.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 40.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 34.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 29.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 44.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 54.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 30.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 45.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 45.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 34.8,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Western Equatoria||Ezo": {
+      "state": "Western Equatoria",
+      "county": "Ezo",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 20.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 5.0,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2022-04",
+          "pct": 30.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 35.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 30.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 15.0,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2023-09",
+          "pct": 40.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 4.1,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2024-04",
+          "pct": 4.1,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2024-09",
+          "pct": 10.1,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2024-12",
+          "pct": 15.3,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2025-04",
+          "pct": 14.9,
+          "phase": "Stressed"
+        }
+      ]
+    },
+    "Western Equatoria||Ibba": {
+      "state": "Western Equatoria",
+      "county": "Ibba",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 14.3,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2022-02",
+          "pct": 9.5,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2022-04",
+          "pct": 19.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 15.1,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2022-12",
+          "pct": 30.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 10.5,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2023-09",
+          "pct": 34.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 14.3,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2024-04",
+          "pct": 14.3,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2024-09",
+          "pct": 20.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 14.6,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2025-04",
+          "pct": 14.4,
+          "phase": "Stressed"
+        }
+      ]
+    },
+    "Western Equatoria||Maridi": {
+      "state": "Western Equatoria",
+      "county": "Maridi",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 5.4,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2022-02",
+          "pct": 0.0,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2022-04",
+          "pct": 15.4,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2022-10",
+          "pct": 10.0,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2022-12",
+          "pct": 20.8,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2023-04",
+          "pct": 10.0,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2023-09",
+          "pct": 25.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 14.9,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2024-04",
+          "pct": 10.3,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2024-09",
+          "pct": 25.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 14.9,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2025-04",
+          "pct": 4.6,
+          "phase": "Stressed"
+        }
+      ]
+    },
+    "Western Equatoria||Mundri East": {
+      "state": "Western Equatoria",
+      "county": "Mundri East",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 25.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 14.6,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2022-04",
+          "pct": 40.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 50.0,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 44.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 44.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 49.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 29.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 34.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 49.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 30.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 20.3,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Western Equatoria||Mundri West": {
+      "state": "Western Equatoria",
+      "county": "Mundri West",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 19.2,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2022-02",
+          "pct": 10.7,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2022-04",
+          "pct": 44.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 50.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 24.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 34.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 44.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 30.5,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 34.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 34.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 25.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 15.5,
+          "phase": "Stressed"
+        }
+      ]
+    },
+    "Western Equatoria||Mvolo": {
+      "state": "Western Equatoria",
+      "county": "Mvolo",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 15.4,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2022-02",
+          "pct": 19.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 30.6,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 54.5,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 49.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 35.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 54.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 39.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 55.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 59.7,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 39.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 29.7,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Western Equatoria||Nagero": {
+      "state": "Western Equatoria",
+      "county": "Nagero",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 40.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 45.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-04",
+          "pct": 61.9,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 69.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 39.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 24.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 55.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 37.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-04",
+          "pct": 56.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-09",
+          "pct": 59.8,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 39.0,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 29.9,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Western Equatoria||Nzara": {
+      "state": "Western Equatoria",
+      "county": "Nzara",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 14.8,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2022-02",
+          "pct": 4.9,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2022-04",
+          "pct": 14.4,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2022-10",
+          "pct": 9.6,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2022-12",
+          "pct": 4.8,
+          "phase": "Minimal"
+        },
+        {
+          "period": "2023-04",
+          "pct": 4.8,
+          "phase": "Minimal"
+        },
+        {
+          "period": "2023-09",
+          "pct": 9.6,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2023-12",
+          "pct": 0.0,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2024-04",
+          "pct": 0.0,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2024-09",
+          "pct": 0.0,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2024-12",
+          "pct": 10.4,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2025-04",
+          "pct": 4.6,
+          "phase": "Stressed"
+        }
+      ]
+    },
+    "Western Equatoria||Tambura": {
+      "state": "Western Equatoria",
+      "county": "Tambura",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 25.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 5.4,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2022-04",
+          "pct": 85.6,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-10",
+          "pct": 90.7,
+          "phase": "Emergency"
+        },
+        {
+          "period": "2022-12",
+          "pct": 40.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-04",
+          "pct": 30.2,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-09",
+          "pct": 65.4,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 15.2,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2024-04",
+          "pct": 10.2,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2024-09",
+          "pct": 20.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2024-12",
+          "pct": 30.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2025-04",
+          "pct": 20.4,
+          "phase": "Crisis"
+        }
+      ]
+    },
+    "Western Equatoria||Yambio": {
+      "state": "Western Equatoria",
+      "county": "Yambio",
+      "points": [
+        {
+          "period": "2020-05",
+          "pct": 20.1,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-02",
+          "pct": 10.1,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2022-04",
+          "pct": 24.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-10",
+          "pct": 30.3,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2022-12",
+          "pct": 14.8,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2023-04",
+          "pct": 14.8,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2023-09",
+          "pct": 24.9,
+          "phase": "Crisis"
+        },
+        {
+          "period": "2023-12",
+          "pct": 10.1,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2024-04",
+          "pct": 5.0,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2024-09",
+          "pct": 10.1,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2024-12",
+          "pct": 14.9,
+          "phase": "Stressed"
+        },
+        {
+          "period": "2025-04",
+          "pct": 9.9,
+          "phase": "Stressed"
+        }
+      ]
+    }
+  },
+  "states": {
+    "Abyei": {
+      "points": [
+        {
+          "period": "2023-12",
+          "pct": 49.2
+        },
+        {
+          "period": "2024-04",
+          "pct": 30.4
+        },
+        {
+          "period": "2024-09",
+          "pct": 55.5
+        }
+      ]
+    },
+    "Central Equatoria": {
+      "points": [
+        {
+          "period": "2017-09",
+          "pct": 42.08
+        },
+        {
+          "period": "2017-10",
+          "pct": 54.8
+        },
+        {
+          "period": "2018-01",
+          "pct": 50.78333333333333
+        },
+        {
+          "period": "2018-02",
+          "pct": 55.03333333333333
+        },
+        {
+          "period": "2018-05",
+          "pct": 62.48333333333333
+        },
+        {
+          "period": "2018-09",
+          "pct": 67.4
+        },
+        {
+          "period": "2018-10",
+          "pct": 57.7
+        },
+        {
+          "period": "2019-01",
+          "pct": 47.650000000000006
+        },
+        {
+          "period": "2019-08",
+          "pct": 56.6
+        },
+        {
+          "period": "2019-09",
+          "pct": 25.05
+        },
+        {
+          "period": "2020-01",
+          "pct": 30.858333333333334
+        },
+        {
+          "period": "2020-02",
+          "pct": 27.433333333333334
+        },
+        {
+          "period": "2020-05",
+          "pct": 45.75
+        },
+        {
+          "period": "2022-02",
+          "pct": 47.5
+        },
+        {
+          "period": "2022-04",
+          "pct": 52.46666666666667
+        },
+        {
+          "period": "2022-10",
+          "pct": 51.666666666666664
+        },
+        {
+          "period": "2022-12",
+          "pct": 37.6
+        },
+        {
+          "period": "2023-04",
+          "pct": 33.333333333333336
+        },
+        {
+          "period": "2023-09",
+          "pct": 49.26666666666667
+        },
+        {
+          "period": "2023-12",
+          "pct": 47.53333333333333
+        },
+        {
+          "period": "2024-04",
+          "pct": 38.43333333333333
+        },
+        {
+          "period": "2024-09",
+          "pct": 52.48333333333333
+        },
+        {
+          "period": "2024-12",
+          "pct": 48.4
+        },
+        {
+          "period": "2025-04",
+          "pct": 38.31666666666667
+        }
+      ]
+    },
+    "Eastern Equatoria": {
+      "points": [
+        {
+          "period": "2017-09",
+          "pct": 45.8875
+        },
+        {
+          "period": "2017-10",
+          "pct": 61.2375
+        },
+        {
+          "period": "2018-01",
+          "pct": 53.075
+        },
+        {
+          "period": "2018-02",
+          "pct": 33.0875
+        },
+        {
+          "period": "2018-05",
+          "pct": 39.6875
+        },
+        {
+          "period": "2018-09",
+          "pct": 45.425000000000004
+        },
+        {
+          "period": "2018-10",
+          "pct": 42.4625
+        },
+        {
+          "period": "2019-01",
+          "pct": 41.862500000000004
+        },
+        {
+          "period": "2019-08",
+          "pct": 40.0
+        },
+        {
+          "period": "2019-09",
+          "pct": 54.0
+        },
+        {
+          "period": "2020-01",
+          "pct": 34.29375
+        },
+        {
+          "period": "2020-02",
+          "pct": 47.7375
+        },
+        {
+          "period": "2020-05",
+          "pct": 42.4125
+        },
+        {
+          "period": "2022-02",
+          "pct": 41.85
+        },
+        {
+          "period": "2022-04",
+          "pct": 46.25
+        },
+        {
+          "period": "2022-10",
+          "pct": 49.7875
+        },
+        {
+          "period": "2022-12",
+          "pct": 44.325
+        },
+        {
+          "period": "2023-04",
+          "pct": 47.325
+        },
+        {
+          "period": "2023-09",
+          "pct": 53.425000000000004
+        },
+        {
+          "period": "2023-12",
+          "pct": 37.3875
+        },
+        {
+          "period": "2024-04",
+          "pct": 33.825
+        },
+        {
+          "period": "2024-09",
+          "pct": 46.125
+        },
+        {
+          "period": "2024-12",
+          "pct": 42.625
+        },
+        {
+          "period": "2025-04",
+          "pct": 43.85
+        }
+      ]
+    },
+    "Jonglei": {
+      "points": [
+        {
+          "period": "2017-09",
+          "pct": 61.790909090909096
+        },
+        {
+          "period": "2017-10",
+          "pct": 65.96363636363637
+        },
+        {
+          "period": "2018-01",
+          "pct": 59.68181818181818
+        },
+        {
+          "period": "2018-02",
+          "pct": 55.42727272727273
+        },
+        {
+          "period": "2018-05",
+          "pct": 67.7909090909091
+        },
+        {
+          "period": "2018-09",
+          "pct": 75.60000000000001
+        },
+        {
+          "period": "2018-10",
+          "pct": 59.63636363636363
+        },
+        {
+          "period": "2019-01",
+          "pct": 51.01818181818182
+        },
+        {
+          "period": "2019-08",
+          "pct": 61.345454545454544
+        },
+        {
+          "period": "2019-09",
+          "pct": 63.2
+        },
+        {
+          "period": "2020-01",
+          "pct": 57.32727272727273
+        },
+        {
+          "period": "2020-02",
+          "pct": 59.51818181818182
+        },
+        {
+          "period": "2020-05",
+          "pct": 69.16363636363636
+        },
+        {
+          "period": "2022-02",
+          "pct": 72.84545454545454
+        },
+        {
+          "period": "2022-04",
+          "pct": 71.95454545454545
+        },
+        {
+          "period": "2022-10",
+          "pct": 78.38181818181819
+        },
+        {
+          "period": "2022-12",
+          "pct": 68.26363636363637
+        },
+        {
+          "period": "2023-04",
+          "pct": 63.72727272727273
+        },
+        {
+          "period": "2023-09",
+          "pct": 74.68181818181819
+        },
+        {
+          "period": "2023-12",
+          "pct": 63.18181818181818
+        },
+        {
+          "period": "2024-04",
+          "pct": 59.49090909090909
+        },
+        {
+          "period": "2024-09",
+          "pct": 68.9090909090909
+        },
+        {
+          "period": "2024-12",
+          "pct": 53.88181818181818
+        },
+        {
+          "period": "2025-04",
+          "pct": 54.42727272727273
+        }
+      ]
+    },
+    "Lakes": {
+      "points": [
+        {
+          "period": "2017-09",
+          "pct": 37.5
+        },
+        {
+          "period": "2017-10",
+          "pct": 42.4
+        },
+        {
+          "period": "2018-01",
+          "pct": 23.0375
+        },
+        {
+          "period": "2018-02",
+          "pct": 40.55
+        },
+        {
+          "period": "2018-05",
+          "pct": 46.05
+        },
+        {
+          "period": "2018-09",
+          "pct": 55.0625
+        },
+        {
+          "period": "2018-10",
+          "pct": 72.8625
+        },
+        {
+          "period": "2019-01",
+          "pct": 56.6
+        },
+        {
+          "period": "2019-08",
+          "pct": 58.2125
+        },
+        {
+          "period": "2019-09",
+          "pct": 57.6125
+        },
+        {
+          "period": "2020-01",
+          "pct": 45.0
+        },
+        {
+          "period": "2020-02",
+          "pct": 48.75
+        },
+        {
+          "period": "2020-05",
+          "pct": 56.3
+        },
+        {
+          "period": "2022-02",
+          "pct": 62.5875
+        },
+        {
+          "period": "2022-04",
+          "pct": 52.4
+        },
+        {
+          "period": "2022-10",
+          "pct": 62.0125
+        },
+        {
+          "period": "2022-12",
+          "pct": 56.7625
+        },
+        {
+          "period": "2023-04",
+          "pct": 51.7625
+        },
+        {
+          "period": "2023-09",
+          "pct": 61.75
+        },
+        {
+          "period": "2023-12",
+          "pct": 53.725
+        },
+        {
+          "period": "2024-04",
+          "pct": 48.625
+        },
+        {
+          "period": "2024-09",
+          "pct": 59.225
+        },
+        {
+          "period": "2024-12",
+          "pct": 44.55
+        },
+        {
+          "period": "2025-04",
+          "pct": 38.675
+        }
+      ]
+    },
+    "Northern Bahr El Ghazal": {
+      "points": [
+        {
+          "period": "2017-09",
+          "pct": 62.879999999999995
+        },
+        {
+          "period": "2017-10",
+          "pct": 61.04
+        },
+        {
+          "period": "2018-01",
+          "pct": 56.220000000000006
+        },
+        {
+          "period": "2018-02",
+          "pct": 55.78000000000001
+        },
+        {
+          "period": "2018-05",
+          "pct": 62.8
+        },
+        {
+          "period": "2018-09",
+          "pct": 70.96000000000001
+        },
+        {
+          "period": "2018-10",
+          "pct": 50.96
+        },
+        {
+          "period": "2019-01",
+          "pct": 35.8
+        },
+        {
+          "period": "2019-08",
+          "pct": 51.9
+        },
+        {
+          "period": "2019-09",
+          "pct": 59.17999999999999
+        },
+        {
+          "period": "2020-01",
+          "pct": 49.69
+        },
+        {
+          "period": "2020-02",
+          "pct": 58.02
+        },
+        {
+          "period": "2020-05",
+          "pct": 59.260000000000005
+        },
+        {
+          "period": "2022-02",
+          "pct": 63.220000000000006
+        },
+        {
+          "period": "2022-04",
+          "pct": 55.2
+        },
+        {
+          "period": "2022-10",
+          "pct": 64.78
+        },
+        {
+          "period": "2022-12",
+          "pct": 61.760000000000005
+        },
+        {
+          "period": "2023-04",
+          "pct": 55.8
+        },
+        {
+          "period": "2023-09",
+          "pct": 69.12
+        },
+        {
+          "period": "2023-12",
+          "pct": 42.96
+        },
+        {
+          "period": "2024-04",
+          "pct": 47.94
+        },
+        {
+          "period": "2024-09",
+          "pct": 53.88000000000001
+        },
+        {
+          "period": "2024-12",
+          "pct": 53.279999999999994
+        },
+        {
+          "period": "2025-04",
+          "pct": 38.94
+        }
+      ]
+    },
+    "Unity": {
+      "points": [
+        {
+          "period": "2017-09",
+          "pct": 62.166666666666664
+        },
+        {
+          "period": "2017-10",
+          "pct": 63.06666666666667
+        },
+        {
+          "period": "2018-01",
+          "pct": 51.644444444444446
+        },
+        {
+          "period": "2018-02",
+          "pct": 51.65555555555555
+        },
+        {
+          "period": "2018-05",
+          "pct": 69.47777777777777
+        },
+        {
+          "period": "2018-09",
+          "pct": 76.71111111111111
+        },
+        {
+          "period": "2018-10",
+          "pct": 71.57777777777778
+        },
+        {
+          "period": "2019-01",
+          "pct": 59.98888888888889
+        },
+        {
+          "period": "2019-08",
+          "pct": 70.94444444444444
+        },
+        {
+          "period": "2019-09",
+          "pct": 62.233333333333334
+        },
+        {
+          "period": "2020-01",
+          "pct": 51.81111111111111
+        },
+        {
+          "period": "2020-02",
+          "pct": 66.12222222222222
+        },
+        {
+          "period": "2020-05",
+          "pct": 55.43333333333333
+        },
+        {
+          "period": "2022-02",
+          "pct": 63.766666666666666
+        },
+        {
+          "period": "2022-04",
+          "pct": 69.65555555555555
+        },
+        {
+          "period": "2022-10",
+          "pct": 78.64444444444445
+        },
+        {
+          "period": "2022-12",
+          "pct": 64.04444444444444
+        },
+        {
+          "period": "2023-04",
+          "pct": 65.71111111111111
+        },
+        {
+          "period": "2023-09",
+          "pct": 76.58888888888889
+        },
+        {
+          "period": "2023-12",
+          "pct": 55.388888888888886
+        },
+        {
+          "period": "2024-04",
+          "pct": 59.78888888888889
+        },
+        {
+          "period": "2024-09",
+          "pct": 65.11111111111111
+        },
+        {
+          "period": "2024-12",
+          "pct": 61.36666666666666
+        },
+        {
+          "period": "2025-04",
+          "pct": 62.03333333333333
+        }
+      ]
+    },
+    "Upper Nile": {
+      "points": [
+        {
+          "period": "2017-09",
+          "pct": 50.99090909090909
+        },
+        {
+          "period": "2017-10",
+          "pct": 62.5
+        },
+        {
+          "period": "2018-01",
+          "pct": 50.125
+        },
+        {
+          "period": "2018-02",
+          "pct": 62.583333333333336
+        },
+        {
+          "period": "2018-05",
+          "pct": 64.88333333333334
+        },
+        {
+          "period": "2018-09",
+          "pct": 71.50909090909092
+        },
+        {
+          "period": "2018-10",
+          "pct": 70.0909090909091
+        },
+        {
+          "period": "2019-01",
+          "pct": 52.48181818181818
+        },
+        {
+          "period": "2019-08",
+          "pct": 61.75833333333333
+        },
+        {
+          "period": "2019-09",
+          "pct": 61.666666666666664
+        },
+        {
+          "period": "2020-01",
+          "pct": 50.354166666666664
+        },
+        {
+          "period": "2020-02",
+          "pct": 54.75
+        },
+        {
+          "period": "2020-05",
+          "pct": 58.550000000000004
+        },
+        {
+          "period": "2022-02",
+          "pct": 66.55
+        },
+        {
+          "period": "2022-04",
+          "pct": 53.083333333333336
+        },
+        {
+          "period": "2022-10",
+          "pct": 63.2
+        },
+        {
+          "period": "2022-12",
+          "pct": 57.872727272727275
+        },
+        {
+          "period": "2023-04",
+          "pct": 59.40909090909091
+        },
+        {
+          "period": "2023-09",
+          "pct": 69.64999999999999
+        },
+        {
+          "period": "2023-12",
+          "pct": 58.324999999999996
+        },
+        {
+          "period": "2024-04",
+          "pct": 58.18333333333334
+        },
+        {
+          "period": "2024-09",
+          "pct": 66.575
+        },
+        {
+          "period": "2024-12",
+          "pct": 56.175000000000004
+        },
+        {
+          "period": "2025-04",
+          "pct": 49.88333333333333
+        }
+      ]
+    },
+    "Warrap": {
+      "points": [
+        {
+          "period": "2017-09",
+          "pct": 49.86666666666667
+        },
+        {
+          "period": "2017-10",
+          "pct": 49.1
+        },
+        {
+          "period": "2018-01",
+          "pct": 28.400000000000002
+        },
+        {
+          "period": "2018-02",
+          "pct": 46.68333333333334
+        },
+        {
+          "period": "2018-05",
+          "pct": 52.583333333333336
+        },
+        {
+          "period": "2018-09",
+          "pct": 59.86666666666667
+        },
+        {
+          "period": "2018-10",
+          "pct": 54.88333333333333
+        },
+        {
+          "period": "2019-01",
+          "pct": 15.066666666666668
+        },
+        {
+          "period": "2019-08",
+          "pct": 25.599999999999998
+        },
+        {
+          "period": "2019-09",
+          "pct": 58.9
+        },
+        {
+          "period": "2020-01",
+          "pct": 28.258333333333336
+        },
+        {
+          "period": "2020-02",
+          "pct": 41.666666666666664
+        },
+        {
+          "period": "2020-05",
+          "pct": 45.85
+        },
+        {
+          "period": "2022-02",
+          "pct": 54.11666666666667
+        },
+        {
+          "period": "2022-04",
+          "pct": 63.4
+        },
+        {
+          "period": "2022-10",
+          "pct": 70.88333333333334
+        },
+        {
+          "period": "2022-12",
+          "pct": 56.6
+        },
+        {
+          "period": "2023-04",
+          "pct": 58.35
+        },
+        {
+          "period": "2023-09",
+          "pct": 68.3
+        },
+        {
+          "period": "2023-12",
+          "pct": 36.666666666666664
+        },
+        {
+          "period": "2024-04",
+          "pct": 44.18333333333334
+        },
+        {
+          "period": "2024-09",
+          "pct": 54.98333333333333
+        },
+        {
+          "period": "2024-12",
+          "pct": 38.53333333333333
+        },
+        {
+          "period": "2025-04",
+          "pct": 48.333333333333336
+        }
+      ]
+    },
+    "Western Bahr El Ghazal": {
+      "points": [
+        {
+          "period": "2017-09",
+          "pct": 58.56666666666666
+        },
+        {
+          "period": "2017-10",
+          "pct": 70.06666666666666
+        },
+        {
+          "period": "2018-01",
+          "pct": 64.56666666666666
+        },
+        {
+          "period": "2018-02",
+          "pct": 45.133333333333326
+        },
+        {
+          "period": "2018-05",
+          "pct": 51.9
+        },
+        {
+          "period": "2018-09",
+          "pct": 60.666666666666664
+        },
+        {
+          "period": "2018-10",
+          "pct": 60.633333333333326
+        },
+        {
+          "period": "2019-01",
+          "pct": 50.86666666666667
+        },
+        {
+          "period": "2019-08",
+          "pct": 40.56666666666667
+        },
+        {
+          "period": "2019-09",
+          "pct": 68.39999999999999
+        },
+        {
+          "period": "2020-01",
+          "pct": 41.68333333333333
+        },
+        {
+          "period": "2020-02",
+          "pct": 41.333333333333336
+        },
+        {
+          "period": "2020-05",
+          "pct": 41.666666666666664
+        },
+        {
+          "period": "2022-02",
+          "pct": 50.06666666666666
+        },
+        {
+          "period": "2022-04",
+          "pct": 28.400000000000002
+        },
+        {
+          "period": "2022-10",
+          "pct": 38.4
+        },
+        {
+          "period": "2022-12",
+          "pct": 41.766666666666666
+        },
+        {
+          "period": "2023-04",
+          "pct": 36.699999999999996
+        },
+        {
+          "period": "2023-09",
+          "pct": 48.4
+        },
+        {
+          "period": "2023-12",
+          "pct": 48.23333333333333
+        },
+        {
+          "period": "2024-04",
+          "pct": 33.43333333333333
+        },
+        {
+          "period": "2024-09",
+          "pct": 49.9
+        },
+        {
+          "period": "2024-12",
+          "pct": 41.833333333333336
+        },
+        {
+          "period": "2025-04",
+          "pct": 31.266666666666666
+        }
+      ]
+    },
+    "Western Equatoria": {
+      "points": [
+        {
+          "period": "2017-09",
+          "pct": 10.76
+        },
+        {
+          "period": "2017-10",
+          "pct": 28.35
+        },
+        {
+          "period": "2018-01",
+          "pct": 22.43
+        },
+        {
+          "period": "2018-02",
+          "pct": 21.4
+        },
+        {
+          "period": "2018-05",
+          "pct": 32.61
+        },
+        {
+          "period": "2018-09",
+          "pct": 35.19
+        },
+        {
+          "period": "2018-10",
+          "pct": 48.160000000000004
+        },
+        {
+          "period": "2019-01",
+          "pct": 25.96
+        },
+        {
+          "period": "2019-08",
+          "pct": 14.440000000000001
+        },
+        {
+          "period": "2019-09",
+          "pct": 30.65
+        },
+        {
+          "period": "2020-01",
+          "pct": 14.694999999999999
+        },
+        {
+          "period": "2020-02",
+          "pct": 8.3
+        },
+        {
+          "period": "2020-05",
+          "pct": 20.05
+        },
+        {
+          "period": "2022-02",
+          "pct": 12.51
+        },
+        {
+          "period": "2022-04",
+          "pct": 36.68
+        },
+        {
+          "period": "2022-10",
+          "pct": 41.56
+        },
+        {
+          "period": "2022-12",
+          "pct": 29.790000000000003
+        },
+        {
+          "period": "2023-04",
+          "pct": 22.46
+        },
+        {
+          "period": "2023-09",
+          "pct": 40.410000000000004
+        },
+        {
+          "period": "2023-12",
+          "pct": 19.619999999999997
+        },
+        {
+          "period": "2024-04",
+          "pct": 22.44
+        },
+        {
+          "period": "2024-09",
+          "pct": 28.95
+        },
+        {
+          "period": "2024-12",
+          "pct": 23.45
+        },
+        {
+          "period": "2025-04",
+          "pct": 16.419999999999998
+        }
+      ]
+    }
+  },
+  "national": {
+    "points": [
+      {
+        "period": "2017-09",
+        "pct": 47.0328947368421
+      },
+      {
+        "period": "2017-10",
+        "pct": 54.96447368421053
+      },
+      {
+        "period": "2018-01",
+        "pct": 44.9474358974359
+      },
+      {
+        "period": "2018-02",
+        "pct": 46.83717948717949
+      },
+      {
+        "period": "2018-05",
+        "pct": 55.406410256410254
+      },
+      {
+        "period": "2018-09",
+        "pct": 61.57808219178082
+      },
+      {
+        "period": "2018-10",
+        "pct": 59.68219178082192
+      },
+      {
+        "period": "2019-01",
+        "pct": 44.42465753424658
+      },
+      {
+        "period": "2019-08",
+        "pct": 49.473076923076924
+      },
+      {
+        "period": "2019-09",
+        "pct": 53.83974358974359
+      },
+      {
+        "period": "2020-01",
+        "pct": 41.162179487179486
+      },
+      {
+        "period": "2020-02",
+        "pct": 46.03076923076923
+      },
+      {
+        "period": "2020-05",
+        "pct": 50.300000000000004
+      },
+      {
+        "period": "2022-02",
+        "pct": 53.97948717948717
+      },
+      {
+        "period": "2022-04",
+        "pct": 54.715384615384615
+      },
+      {
+        "period": "2022-10",
+        "pct": 61.68311688311689
+      },
+      {
+        "period": "2022-12",
+        "pct": 52.85454545454546
+      },
+      {
+        "period": "2023-04",
+        "pct": 50.68051948051948
+      },
+      {
+        "period": "2023-09",
+        "pct": 62.41410256410256
+      },
+      {
+        "period": "2023-12",
+        "pct": 47.245569620253164
+      },
+      {
+        "period": "2024-04",
+        "pct": 46.08607594936709
+      },
+      {
+        "period": "2024-09",
+        "pct": 55.627848101265826
+      },
+      {
+        "period": "2024-12",
+        "pct": 46.98076923076923
+      },
+      {
+        "period": "2025-04",
+        "pct": 43.44102564102564
+      }
+    ]
+  }
+}

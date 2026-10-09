@@ -2,6 +2,8 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import countiesJson from "@/data/counties.json";
+import historyJson from "@/data/county-history.json";
+import Sparkline from "@/components/Sparkline";
 import { IconArrow } from "@/components/Icons";
 
 interface RawCounty {
@@ -19,6 +21,15 @@ interface Prediction { probability: number; band: string }
 interface ScoredCounty extends RawCounty { probability: number; band: string }
 
 const COUNTIES = countiesJson as RawCounty[];
+
+const STATE_HISTORY = (historyJson as {
+  states: Record<string, { points: { period: string; pct: number }[] }>;
+}).states;
+
+function stateTrajectory(state: string): number[] {
+  const entry = STATE_HISTORY[state];
+  return entry ? entry.points.map((p) => p.pct) : [];
+}
 
 const BAND_COLOR: Record<string, string> = {
   Low: "#16A34A",
@@ -152,6 +163,7 @@ export default function RegionsPage() {
               : g.avgRisk < 0.60 ? "#F59E0B"
               : g.avgRisk < 0.85 ? "#EA580C"
               : "#B91C1C";
+            const traj = stateTrajectory(g.state);
             return (
               <section
                 key={g.state}
@@ -173,16 +185,27 @@ export default function RegionsPage() {
                       )}
                     </p>
                   </div>
-                  <div className="text-right">
-                    <div
-                      className="font-mono text-xl font-semibold tracking-tight sm:text-2xl"
-                      style={{ color: avgColor }}
-                    >
-                      {(g.avgRisk * 100).toFixed(0)}%
+                  <div className="flex flex-col items-end gap-1">
+                    <div className="text-right">
+                      <div
+                        className="font-mono text-xl font-semibold tracking-tight sm:text-2xl"
+                        style={{ color: avgColor }}
+                      >
+                        {(g.avgRisk * 100).toFixed(0)}%
+                      </div>
+                      <div className="text-[10px] uppercase tracking-wider text-[#78716C]">
+                        avg risk
+                      </div>
                     </div>
-                    <div className="text-[10px] uppercase tracking-wider text-[#78716C]">
-                      avg risk
-                    </div>
+                    {traj.length >= 2 && (
+                      <Sparkline
+                        values={traj}
+                        width={90}
+                        height={26}
+                        color={avgColor}
+                        showReference={false}
+                      />
+                    )}
                   </div>
                 </div>
 
@@ -225,8 +248,10 @@ export default function RegionsPage() {
         <p className="mt-2 text-sm text-[#57534E]">
           Each card is a state. Chips inside it are the counties, sorted by
           predicted risk. States are ranked from highest to lowest average risk.
-          Colours follow the standard IPC risk bands — green under 35%, amber
-          35–60%, orange 60–85%, red 85% and above.
+          The sparkline next to the average shows the last 24 periods for that
+          state, so you can see the direction of travel, not just the current
+          level. Colours follow the standard IPC risk bands — green under 35%,
+          amber 35–60%, orange 60–85%, red 85% and above.
         </p>
         <div className="mt-4">
           <Link

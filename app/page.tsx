@@ -2,8 +2,10 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import countiesJson from "@/data/counties.json";
+import historyJson from "@/data/county-history.json";
 import RiskGauge from "@/components/RiskGauge";
 import MetricCard from "@/components/MetricCard";
+import TrendChart from "@/components/TrendChart";
 import {
   IconAlert, IconTrend, IconEye, IconShield,
   IconArrow, IconGauge, IconMap,
@@ -25,6 +27,10 @@ interface Prediction { probability: number; band: string }
 interface ScoredCounty extends RawCounty { probability: number; band: string }
 
 const COUNTIES = countiesJson as RawCounty[];
+
+const NATIONAL_TREND = (historyJson as {
+  national: { points: { period: string; pct: number }[] };
+}).national.points;
 
 const BAND_COLOR: Record<string, string> = {
   Low: "#16A34A",
@@ -100,6 +106,7 @@ export default function Overview() {
 
   return (
     <main className="px-4 py-6 sm:px-6 sm:py-10">
+      {/* Hero */}
       <section className="grid gap-6 overflow-hidden rounded-3xl border border-[#EBE8E2] bg-gradient-to-br from-white via-white to-[#F5F3EF] p-6 shadow-[0_1px_3px_rgba(0,0,0,0.03)] sm:p-8 md:grid-cols-[minmax(0,1fr)_300px] md:items-center">
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-[#1E3A8A]">
@@ -137,7 +144,7 @@ export default function Overview() {
         </div>
       </section>
 
-      {/* Risk-band cards — clickable */}
+      {/* Risk-band cards */}
       <section className="mt-6 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         <MetricCard
           href="/counties?band=very-high"
@@ -181,6 +188,7 @@ export default function Overview() {
         />
       </section>
 
+      {/* Info strip */}
       <section className="mt-3 flex flex-wrap items-center gap-x-6 gap-y-1.5 rounded-xl border border-[#EBE8E2] bg-white px-4 py-3 text-xs text-[#57534E]">
         <span>
           <strong className="font-semibold text-[#1C1917]">
@@ -203,6 +211,30 @@ export default function Overview() {
         </span>
       </section>
 
+      {/* National trend */}
+      <section className="mt-8 rounded-3xl border border-[#EBE8E2] bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] sm:p-6">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <h2 className="text-lg font-semibold tracking-tight">
+              National trend
+            </h2>
+            <p className="mt-1 text-xs text-[#57534E] sm:text-sm">
+              Share of population in IPC Phase 3+ — averaged across all
+              counties, last {NATIONAL_TREND.length} periods.
+            </p>
+          </div>
+          {NATIONAL_TREND.length > 0 && (
+            <span className="rounded-md border border-[#EBE8E2] bg-[#F8F7F4] px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-[#78716C]">
+              {NATIONAL_TREND[0]?.period} → {NATIONAL_TREND[NATIONAL_TREND.length - 1]?.period}
+            </span>
+          )}
+        </div>
+        <div className="mt-4">
+          <TrendChart points={NATIONAL_TREND} color="#1E3A8A" />
+        </div>
+      </section>
+
+      {/* Top priority counties */}
       <section className="mt-8 rounded-3xl border border-[#EBE8E2] bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] sm:p-6">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>

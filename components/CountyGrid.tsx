@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import countiesJson from "@/data/counties.json";
+import historyJson from "@/data/county-history.json";
 import CountyCard from "./CountyCard";
 import { useWatchlist, countyKey } from "./Watchlist";
 import { IconMap, IconAlert, IconEye } from "./Icons";
@@ -26,6 +27,19 @@ export interface ScoredCounty extends RawCounty {
 interface Prediction { probability: number; band: string }
 
 const COUNTIES = countiesJson as RawCounty[];
+
+const HISTORY = historyJson as {
+  counties: Record<
+    string,
+    { state: string; county: string; points: { period: string; pct: number }[] }
+  >;
+};
+
+function trajectoryFor(state: string, county: string): number[] {
+  const key = `${state}||${county}`;
+  const entry = HISTORY.counties[key];
+  return entry ? entry.points.map((p) => p.pct) : [];
+}
 
 const BAND_RANGES: Record<string, [number, number]> = {
   "very-high": [0.85, 1.01],
@@ -132,14 +146,11 @@ export default function CountyGrid({
     [scored]
   );
 
-  // Counties currently in scope given the state dropdown
   const inScope = useMemo(() => {
     if (stateFilter === "All states") return scored;
     return scored.filter((c) => c.state === stateFilter);
   }, [scored, stateFilter]);
 
-  // Badge counts reflect the current state scope, ignoring the band filter,
-  // so the user can see the total available even while a band chip is active.
   const alertsCount = inScope.filter((c) => c.probability >= 0.85).length;
   const watchingCount = hydrated
     ? inScope.filter((c) => watched.has(countyKey(c.state, c.county))).length
@@ -186,7 +197,6 @@ export default function CountyGrid({
         )}
       </div>
 
-      {/* Active band filter chip */}
       {bandParam && bandRange && (
         <div className="mt-3">
           <span
@@ -292,6 +302,7 @@ export default function CountyGrid({
                   county={c.county}
                   probability={c.probability}
                   band={c.band}
+                  trajectory={trajectoryFor(c.state, c.county)}
                   watched={hydrated && watched.has(countyKey(c.state, c.county))}
                   onToggleWatch={() => toggle(countyKey(c.state, c.county))}
                 />
