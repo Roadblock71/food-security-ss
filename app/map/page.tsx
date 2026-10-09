@@ -124,9 +124,12 @@ export default function MapPage() {
                 const band = pred?.band ?? "no data";
 
                 return (
-                  <Geography key={geo.rsmKey} geography={geo}
+                  <Geography
+                    key={geo.rsmKey}
+                    geography={geo}
                     fill={COLOR(prob)}
-                    stroke="#fff" strokeWidth={0.5}
+                    stroke="#fff"
+                    strokeWidth={0.5}
                     onMouseEnter={() => {
                       if (!matchedCounty) {
                         setHover(`${raw} — no prediction match`);
@@ -137,8 +140,7 @@ export default function MapPage() {
                       }
                     }}
                     onMouseLeave={() => setHover(null)}
-                    style={{ default: { outline: "none" },
-                             hover:   { outline: "none", opacity: 0.85 } }} />
+                  />
                 );
               })}
             </Geographies>
@@ -159,8 +161,10 @@ export default function MapPage() {
             ["≥85% Very High", "#dc2626"],
           ].map(([label, color]) => (
             <span key={label} className="flex items-center gap-1">
-              <span className="inline-block h-3 w-3 rounded"
-                    style={{ background: color }} />
+              <span
+                className="inline-block h-3 w-3 rounded"
+                style={{ background: color }}
+              />
               {label}
             </span>
           ))}
