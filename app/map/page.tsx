@@ -25,6 +25,26 @@ interface CountyEntry {
   payload: RawCounty;
 }
 
+interface MapPath {
+  key: string;
+  d: string;
+  rawName: string;
+  matchedCounty: string | undefined;
+  prob: number;
+  band: string;
+}
+
+interface GeoFeature {
+  type: string;
+  properties: Record<string, unknown>;
+  geometry: unknown;
+}
+
+interface GeoData {
+  type: string;
+  features: GeoFeature[];
+}
+
 const COLOR = (p: number) =>
   p < 0.35 ? "#10b981" : p < 0.60 ? "#eab308" : p < 0.85 ? "#f97316" : "#dc2626";
 
@@ -50,7 +70,7 @@ export default function MapPage() {
   const [apiError, setApiError] = useState<string | null>(null);
   const [hover, setHover] = useState<string | null>(null);
   const [unmatched, setUnmatched] = useState<string[]>([]);
-  const [geoData, setGeoData] = useState<any>(null);
+  const [geoData, setGeoData] = useState<GeoData | null>(null);
   const [geoError, setGeoError] = useState<string | null>(null);
 
   const normToCounty = useMemo(() => {
@@ -59,18 +79,18 @@ export default function MapPage() {
     return map;
   }, []);
 
-  // ── Load the GeoJSON manually (avoids react-simple-maps fetch quirks) ──
+  // Load the GeoJSON from /public
   useEffect(() => {
     fetch("/ss_admin2.geojson")
       .then((r) => {
         if (!r.ok) throw new Error(`GeoJSON HTTP ${r.status}`);
-        return r.json();
+        return r.json() as Promise<GeoData>;
       })
       .then((j) => setGeoData(j))
       .catch((err) => setGeoError(String(err)));
   }, []);
 
-  // ── Fetch predictions ──
+  // Fetch all county predictions in two parallel batches
   useEffect(() => {
     (async () => {
       try {
@@ -127,11 +147,10 @@ export default function MapPage() {
     })();
   }, []);
 
-  // ── Build the SVG paths once we have both GeoJSON and predictions ──
   const MAP_W = 800;
   const MAP_H = 700;
 
-  const paths = useMemo(() => {
+  const paths = useMemo<MapPath[]>(() => {
     if (!geoData?.features) return [];
 
     const projection = geoMercator()
@@ -142,13 +161,13 @@ export default function MapPage() {
 
     const unmatchedNames: string[] = [];
 
-    const out = geoData.features.map((feat: any, i: number) => {
+    const out: MapPath[] = geoData.features.map((feat, i) => {
       const props = feat.properties || {};
       const rawName =
-        props.admin2Name ||
-        props.ADM2_EN ||
-        props.ADM1_EN ||
-        props.name ||
+        (props.admin2Name as string) ||
+        (props.ADM2_EN as string) ||
+        (props.ADM1_EN as string) ||
+        (props.name as string) ||
         "";
       const matchedCounty = normToCounty[normalize(rawName)];
       if (!matchedCounty) unmatchedNames.push(rawName);
@@ -159,7 +178,7 @@ export default function MapPage() {
 
       return {
         key: `${i}-${rawName}`,
-        d: pathGen(feat) || "",
+        d: pathGen(feat as never) || "",
         rawName,
         matchedCounty,
         prob,
@@ -167,7 +186,6 @@ export default function MapPage() {
       };
     });
 
-    // Update unmatched state (only when it changes)
     setUnmatched((prev) => {
       const same =
         prev.length === unmatchedNames.length &&
@@ -216,8 +234,8 @@ export default function MapPage() {
           <p className="font-medium">Failed to load map geometry</p>
           <p className="mt-1 font-mono text-xs">{geoError}</p>
           <p className="mt-2 text-xs">
-            Expected file at <code>/ss_admin2.geojson</code>. Make sure it exists in{" "}
-            <code>public/</code>.
+            Expected file at <code>/ss_admin2.geojson</code>. Make sure it exists
+            in <code>public/</code>.
           </p>
         </div>
       )}
@@ -234,7 +252,7 @@ export default function MapPage() {
             height="auto"
             style={{ display: "block", background: "#f8fafc" }}
           >
-            {paths.map((p) => (
+            {paths.map((p: MapPath) => (
               <path
                 key={p.key}
                 d={p.d}
@@ -293,7 +311,7 @@ export default function MapPage() {
             {unmatched.length !== 1 ? "s" : ""} could not be matched
           </p>
           <ul className="mt-3 grid grid-cols-2 gap-1 font-mono text-xs">
-            {unmatched.map((name, i) => (
+            {unmatched.map((name: string, i: number) => (
               <li key={`${name}-${i}`} className="text-yellow-900">
                 {name}
               </li>
