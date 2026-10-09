@@ -1,221 +1,107 @@
-"use client";
-import { useState } from "react";
 import Link from "next/link";
-import ExportButtons from "@/components/ExportButtons";
-import { PredictionRecord } from "@/lib/exporters";
 
-const STATES = [
-  "Abyei", "Central Equatoria", "Eastern Equatoria", "Jonglei", "Lakes",
-  "Northern Bahr El Ghazal", "Unity", "Upper Nile", "Warrap",
-  "Western Bahr El Ghazal", "Western Equatoria",
+const KPIS = [
+  { label: "Counties covered",     value: "79",       sub: "across 11 states" },
+  { label: "Training observations", value: "3,099",    sub: "IPC periods 2014–2025" },
+  { label: "Validation AUC",        value: "0.964",    sub: "temporal holdout" },
+  { label: "Model",                 value: "RF × 500", sub: "class-balanced trees" },
 ];
-const PHASES = ["Minimal", "Stressed", "Crisis", "Emergency", "Catastrophe"];
 
-const BAND_COLOR: Record<string, string> = {
-  Low: "text-emerald-600",
-  Moderate: "text-yellow-600",
-  High: "text-orange-500",
-  "Very High": "text-red-600",
-};
+const ACTIONS = [
+  {
+    href: "/predict",
+    title: "Run a risk assessment",
+    desc: "Enter county context and get a probability of IPC Phase 3+.",
+    accent: "bg-[#1E3A8A]",
+  },
+  {
+    href: "/map",
+    title: "View the risk atlas",
+    desc: "See all 79 counties coloured by predicted probability.",
+    accent: "bg-[#B45309]",
+  },
+  {
+    href: "/about",
+    title: "Model & methodology",
+    desc: "Features, validation, and limitations — read before use.",
+    accent: "bg-[#57534E]",
+  },
+];
 
-export default function Home() {
-  const [form, setForm] = useState({
-    state: "Jonglei",
-    county: "Akobo",
-    population: 183725,
-    start_year: 2026,
-    start_month: 4,
-    prior_period_ipc_phase: "Crisis",
-    prior_period_phase3plus_pct: 54.7,
-    prior_year_cereal_production_tonnes: 12258,
-    prior_year_cereal_gap_tonnes: -14231,
-  });
-  const [result, setResult] = useState<{ probability: number; band: string } | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [session, setSession] = useState<PredictionRecord[]>([]);
-
-  function toRecord(band: string, probability: number): PredictionRecord {
-    return {
-      timestamp: new Date().toISOString(),
-      state: form.state,
-      county: form.county,
-      period: `${form.start_year}-${String(form.start_month).padStart(2, "0")}`,
-      population: form.population,
-      priorPhase: form.prior_period_ipc_phase,
-      priorPhase3Pct: form.prior_period_phase3plus_pct,
-      productionTonnes: form.prior_year_cereal_production_tonnes,
-      gapTonnes: form.prior_year_cereal_gap_tonnes,
-      probability,
-      band,
-    };
-  }
-
-  async function submit(e: React.FormEvent) {
-    e.preventDefault();
-    setLoading(true);
-    setError(null);
-    setResult(null);
-    try {
-      const r = await fetch("/api/predict", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (!r.ok) throw new Error(`HTTP ${r.status}`);
-      const data = await r.json();
-      setResult(data);
-      setSession((prev) => [...prev, toRecord(data.band, data.probability)]);
-    } catch (err) {
-      setError(String(err));
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  const removeFromSession = (i: number) =>
-    setSession((prev) => prev.filter((_, idx) => idx !== i));
-
+export default function Dashboard() {
   return (
-    <main className="mx-auto max-w-3xl p-8 pb-40">
-      <h1 className="text-3xl font-bold">South Sudan Food Security Risk</h1>
-      <p className="mt-2 text-neutral-600">
-        Early-warning signal for IPC Phase 3+ between formal assessments.
-      </p>
-
-      <form onSubmit={submit} className="mt-8 grid grid-cols-2 gap-4">
-        <label className="col-span-2">
-          <span className="text-sm font-medium">State</span>
-          <select value={form.state}
-            onChange={(e) => setForm({ ...form, state: e.target.value })}
-            className="mt-1 w-full rounded border border-neutral-300 p-2">
-            {STATES.map((s) => <option key={s}>{s}</option>)}
-          </select>
-        </label>
-
-        <label className="col-span-2">
-          <span className="text-sm font-medium">County</span>
-          <input value={form.county}
-            onChange={(e) => setForm({ ...form, county: e.target.value })}
-            className="mt-1 w-full rounded border border-neutral-300 p-2" />
-        </label>
-
-        <label>
-          <span className="text-sm font-medium">Population</span>
-          <input type="number" value={form.population}
-            onChange={(e) => setForm({ ...form, population: +e.target.value })}
-            className="mt-1 w-full rounded border border-neutral-300 p-2" />
-        </label>
-
-        <label>
-          <span className="text-sm font-medium">Prior IPC phase</span>
-          <select value={form.prior_period_ipc_phase}
-            onChange={(e) => setForm({ ...form, prior_period_ipc_phase: e.target.value })}
-            className="mt-1 w-full rounded border border-neutral-300 p-2">
-            {PHASES.map((p) => <option key={p}>{p}</option>)}
-          </select>
-        </label>
-
-        <label>
-          <span className="text-sm font-medium">Prior Phase 3+ %</span>
-          <input type="number" step="0.1" value={form.prior_period_phase3plus_pct}
-            onChange={(e) => setForm({ ...form, prior_period_phase3plus_pct: +e.target.value })}
-            className="mt-1 w-full rounded border border-neutral-300 p-2" />
-        </label>
-
-        <label>
-          <span className="text-sm font-medium">Year / Month</span>
-          <div className="mt-1 flex gap-2">
-            <input type="number" value={form.start_year}
-              onChange={(e) => setForm({ ...form, start_year: +e.target.value })}
-              className="w-full rounded border border-neutral-300 p-2" />
-            <input type="number" value={form.start_month}
-              onChange={(e) => setForm({ ...form, start_month: +e.target.value })}
-              className="w-full rounded border border-neutral-300 p-2" />
-          </div>
-        </label>
-
-        <label className="col-span-2">
-          <span className="text-sm font-medium">Prior cereal production (t)</span>
-          <input type="number" value={form.prior_year_cereal_production_tonnes}
-            onChange={(e) => setForm({ ...form, prior_year_cereal_production_tonnes: +e.target.value })}
-            className="mt-1 w-full rounded border border-neutral-300 p-2" />
-        </label>
-
-        <label className="col-span-2">
-          <span className="text-sm font-medium">Prior cereal gap (t)</span>
-          <input type="number" value={form.prior_year_cereal_gap_tonnes}
-            onChange={(e) => setForm({ ...form, prior_year_cereal_gap_tonnes: +e.target.value })}
-            className="mt-1 w-full rounded border border-neutral-300 p-2" />
-        </label>
-
-        <button type="submit" disabled={loading}
-          className="col-span-2 rounded-lg bg-neutral-900 py-3 text-white disabled:opacity-50">
-          {loading ? "Predicting…" : "Predict risk"}
-        </button>
-      </form>
-
-      {error && (
-        <div className="mt-6 rounded-lg border border-red-200 bg-red-50 p-4 text-red-800">
-          {error}
+    <main className="mx-auto max-w-6xl px-6 py-10">
+      <section className="rounded-2xl border border-[#E7E5E0] bg-white p-8 shadow-sm">
+        <p className="text-xs font-semibold uppercase tracking-widest text-[#1E3A8A]">
+          Humanitarian early-warning
+        </p>
+        <h1 className="mt-3 text-4xl font-bold leading-tight tracking-tight">
+          Food security intelligence <br />
+          for South Sudan
+        </h1>
+        <p className="mt-4 max-w-2xl text-[#57534E]">
+          Historical context, predictive signals, and county-level risk scores
+          for analysts and responders — a complement to the expert-led IPC
+          classification process.
+        </p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <Link
+            href="/predict"
+            className="rounded-lg bg-[#1E3A8A] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#1E40AF]"
+          >
+            Run an assessment →
+          </Link>
+          <Link
+            href="/map"
+            className="rounded-lg border border-[#E7E5E0] bg-white px-5 py-2.5 text-sm font-medium hover:bg-[#F8F7F4]"
+          >
+            Open risk atlas
+          </Link>
         </div>
-      )}
+      </section>
 
-      {result && (
-        <div className="mt-8 rounded-xl border border-neutral-200 bg-white p-6 shadow-sm">
-          <div className={`font-mono text-5xl ${BAND_COLOR[result.band]}`}>
-            {(result.probability * 100).toFixed(1)}%
-          </div>
-          <div className="mt-2 text-lg">{result.band} risk of IPC Phase 3+</div>
-          <div className="mt-4 flex items-center justify-between">
-            <p className="text-xs text-neutral-500">Added to your report below.</p>
-            <ExportButtons
-              records={[toRecord(result.band, result.probability)]}
-              label={form.county.toLowerCase().replace(/\s+/g, "-")} />
-          </div>
-        </div>
-      )}
-
-      <Link href="/map" className="mt-8 inline-block underline">
-        View all-county risk map →
-      </Link>
-
-      {session.length > 0 && (
-        <div className="fixed inset-x-0 bottom-0 z-20 border-t border-neutral-200 bg-white shadow-[0_-4px_12px_rgba(0,0,0,0.06)]">
-          <div className="mx-auto max-w-3xl p-4">
-            <div className="flex items-center justify-between">
-              <div className="text-sm font-medium">
-                📋 {session.length} prediction{session.length !== 1 ? "s" : ""} in report
-              </div>
-              <div className="flex items-center gap-2">
-                <ExportButtons records={session} label="report" />
-                <button onClick={() => setSession([])}
-                  className="rounded-md border border-neutral-300 px-3 py-1.5 text-xs hover:bg-neutral-50">
-                  Clear
-                </button>
-              </div>
+      <section className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
+        {KPIS.map((k) => (
+          <div key={k.label} className="rounded-xl border border-[#E7E5E0] bg-white p-5">
+            <div className="text-xs font-medium uppercase tracking-wider text-[#78716C]">
+              {k.label}
             </div>
-
-            <ul className="mt-3 max-h-32 overflow-y-auto text-xs text-neutral-700">
-              {session.map((r, i) => (
-                <li key={i} className="flex items-center justify-between border-t border-neutral-100 py-1">
-                  <span>
-                    <span className="font-mono">{r.state} / {r.county}</span>
-                    <span className="mx-2 text-neutral-400">·</span>
-                    <span className={BAND_COLOR[r.band]}>
-                      {(r.probability * 100).toFixed(1)}% {r.band}
-                    </span>
-                    <span className="mx-2 text-neutral-400">·</span>
-                    <span className="text-neutral-500">{r.period}</span>
-                  </span>
-                  <button onClick={() => removeFromSession(i)}
-                    className="text-neutral-400 hover:text-red-600">×</button>
-                </li>
-              ))}
-            </ul>
+            <div className="mt-2 text-2xl font-semibold tracking-tight">{k.value}</div>
+            <div className="mt-1 text-xs text-[#78716C]">{k.sub}</div>
           </div>
+        ))}
+      </section>
+
+      <section className="mt-8">
+        <h2 className="text-sm font-semibold uppercase tracking-widest text-[#78716C]">
+          Quick actions
+        </h2>
+        <div className="mt-4 grid gap-4 md:grid-cols-3">
+          {ACTIONS.map((a) => (
+            <Link
+              key={a.href}
+              href={a.href}
+              className="group rounded-xl border border-[#E7E5E0] bg-white p-5 transition-colors hover:border-[#1E3A8A]/30 hover:bg-[#F8F7F4]"
+            >
+              <span className={`inline-block h-2 w-2 rounded-full ${a.accent}`} />
+              <h3 className="mt-3 text-base font-semibold">{a.title}</h3>
+              <p className="mt-1 text-sm text-[#57534E]">{a.desc}</p>
+              <span className="mt-3 inline-block text-sm font-medium text-[#1E3A8A] opacity-0 transition-opacity group-hover:opacity-100">
+                Continue →
+              </span>
+            </Link>
+          ))}
         </div>
-      )}
+      </section>
+
+      <section className="mt-10 rounded-xl border border-[#E7E5E0] bg-[#F8F7F4] p-5 text-sm text-[#57534E]">
+        <p className="font-medium text-[#1C1917]">Disclaimer</p>
+        <p className="mt-1">
+          This tool provides an early-warning signal between formal IPC
+          assessment cycles. It is not a replacement for IPC classification and
+          should be used alongside expert analysis.
+        </p>
+      </section>
     </main>
   );
 }

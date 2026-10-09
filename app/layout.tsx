@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import NavBar from "@/components/NavBar";
 
 export const metadata: Metadata = {
   title: "South Sudan Food Security Risk",
@@ -9,7 +10,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-neutral-50 text-neutral-900 antialiased">{children}</body>
+      <body className="min-h-screen bg-[#F8F7F4] text-[#1C1917] antialiased">
+        <NavBar />
+        {children}
+      </body>
     </html>
   );
 }
