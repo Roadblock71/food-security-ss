@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
-import { geoMercator, geoPath, geoBounds } from "d3-geo";
+import { geoMercator, geoPath } from "d3-geo";
 import ExportButtons from "@/components/ExportButtons";
 import { PredictionRecord } from "@/lib/exporters";
 import countiesJson from "@/data/counties.json";
@@ -37,7 +37,10 @@ interface MapPath {
 interface GeoFeature {
   type: string;
   properties: Record<string, unknown>;
-  geometry: unknown;
+  geometry: {
+    type: string;
+    coordinates: unknown;
+  } | null;
 }
 
 interface GeoData {
@@ -50,7 +53,6 @@ const NAME_KEYS = [
   "ADM2_EN_1", "name", "NAME_2", "adm2_en", "County",
 ];
 
-// "Raja" (GeoJSON) → "Raga" (our training data)
 const NAME_ALIASES: Record<string, string> = {
   raja: "raga",
 };
@@ -83,6 +85,32 @@ function pickName(props: Record<string, unknown>): string {
   return "";
 }
 
+/** True if the feature has coordinates that d3-geo can actually project.
+ *
+ *  We specifically reject: null geometry, missing coordinates, empty arrays,
+ *  and any coordinate containing null/NaN, because those force d3-geo to
+ *  return the "whole world" bounding box. */
+function hasValidGeometry(feat: GeoFeature): boolean {
+  const g = feat.geometry;
+  if (!g || !g.coordinates) return false;
+  const coords = g.coordinates;
+  if (!Array.isArray(coords) || coords.length === 0) return false;
+  // Quick recursive check: at least one numeric pair exists somewhere
+  let found = false;
+  const walk = (v: unknown): void => {
+    if (found) return;
+    if (Array.isArray(v)) {
+      if (v.length === 2 && typeof v[0] === "number" && typeof v[1] === "number") {
+        if (Number.isFinite(v[0]) && Number.isFinite(v[1])) found = true;
+      } else {
+        for (const x of v) walk(x);
+      }
+    }
+  };
+  walk(coords);
+  return found;
+}
+
 export default function MapPage() {
   const [data, setData] = useState<Record<string, Prediction>>({});
   const [records, setRecords] = useState<PredictionRecord[]>([]);
@@ -93,10 +121,11 @@ export default function MapPage() {
   const [geoData, setGeoData] = useState<GeoData | null>(null);
   const [geoError, setGeoError] = useState<string | null>(null);
   const [debug, setDebug] = useState<{
-    features: number;
-    paths: number;
-    lonLatBounds: string;
-    projectedBounds: string;
+    total: number;
+    valid: number;
+    invalid: string[];
+    rendered: number;
+    skipped: string[];
   } | null>(null);
 
   const normToCounty = useMemo(() => {
@@ -113,13 +142,11 @@ export default function MapPage() {
         return r.json() as Promise<GeoData>;
       })
       .then((j) => {
-        // Log the raw lon/lat bounds so we can see the coordinate space
-        try {
-          const b = geoBounds(j as never);
-          console.log("[map] raw lon/lat bounds:", b);
-        } catch (e) {
-          console.error("[map] geoBounds failed:", e);
-        }
+        console.log("[map] GeoJSON loaded:", {
+          features: j.features?.length,
+          firstProps: j.features?.[0]?.properties,
+          firstGeomType: j.features?.[0]?.geometry?.type,
+        });
         setGeoData(j);
       })
       .catch((err) => setGeoError(String(err)));
@@ -178,22 +205,42 @@ export default function MapPage() {
   const paths = useMemo<MapPath[]>(() => {
     if (!geoData?.features?.length) return [];
 
-    // ── PROJECTION: use a hand-tuned South Sudan projection.
-    // South Sudan spans roughly lon 24–36°E, lat 3.5–12.5°N.
-    // scale() maps 2π·scale pixels to 360° of longitude.
-    // For 800 px wide with ~12° of longitude → 800 / 12 ≈ 67 px/deg
-    // → scale ≈ 67 * 360 / (2π) ≈ 3840
+    // ── Hardcoded projection for South Sudan.
+    // Bounds: lon ≈ 24–36°E, lat ≈ 3.5–12.5°N.  Center (31, 7.5).
+    // scale 2600 fits the country nicely in an 800×700 viewport.
     const projection = geoMercator()
       .center([31.0, 7.5])
       .scale(2600)
       .translate([MAP_W / 2, MAP_H / 2]);
-
     const pathGen = geoPath(projection);
-    const unmatchedNames: string[] = [];
 
-    const out: MapPath[] = geoData.features.map((feat, i) => {
+    const unmatchedNames: string[] = [];
+    const skipped: string[] = [];
+    const out: MapPath[] = [];
+
+    geoData.features.forEach((feat, i) => {
       const props = feat.properties || {};
       const rawName = pickName(props);
+
+      // 1) Filter out features with no valid geometry
+      if (!hasValidGeometry(feat)) {
+        skipped.push(rawName || `feature-${i}`);
+        return;
+      }
+
+      // 2) Generate the SVG path string
+      const dAttr = pathGen(feat as never) || "";
+
+      // 3) Reject paths that ended up as NaN/Infinity (usually bad coordinates)
+      if (
+        dAttr.length === 0 ||
+        dAttr.includes("Infinity") ||
+        dAttr.includes("NaN")
+      ) {
+        skipped.push(rawName || `feature-${i}`);
+        return;
+      }
+
       const matchedCounty = rawName ? normToCounty[normalize(rawName)] : undefined;
       if (!matchedCounty) unmatchedNames.push(rawName || "(unnamed)");
 
@@ -201,45 +248,24 @@ export default function MapPage() {
       const prob = pred?.probability ?? 0;
       const band = pred?.band ?? "no data";
 
-      const dAttr = pathGen(feat as never) || "";
-
-      return {
+      out.push({
         key: `${i}-${rawName || i}`,
         d: dAttr,
         rawName: rawName || "(unnamed)",
         matchedCounty,
         prob,
         band,
-      };
+      });
     });
 
-    // Debug info: see where things actually project to
-    let lonLatBounds = "unknown";
-    let projectedBounds = "unknown";
-    try {
-      const b = geoBounds(geoData as never);
-      lonLatBounds = `lon [${b[0][0].toFixed(2)}, ${b[1][0].toFixed(2)}]  lat [${b[0][1].toFixed(2)}, ${b[1][1].toFixed(2)}]`;
-      // Project the four corners of the lon/lat bbox to see the pixel footprint
-      const corners = [
-        projection([b[0][0], b[0][1]]),
-        projection([b[1][0], b[0][1]]),
-        projection([b[0][0], b[1][1]]),
-        projection([b[1][0], b[1][1]]),
-      ].filter(Boolean) as [number, number][];
-      if (corners.length === 4) {
-        const xs = corners.map((c) => c[0]);
-        const ys = corners.map((c) => c[1]);
-        projectedBounds = `x [${Math.min(...xs).toFixed(0)}, ${Math.max(...xs).toFixed(0)}]  y [${Math.min(...ys).toFixed(0)}, ${Math.max(...ys).toFixed(0)}]`;
-      }
-    } catch (e) {
-      console.error("[map] bounds computation failed:", e);
-    }
+    const valid = geoData.features.length - skipped.length;
 
     setDebug({
-      features: geoData.features.length,
-      paths: out.filter((p) => p.d.length > 0).length,
-      lonLatBounds,
-      projectedBounds,
+      total: geoData.features.length,
+      valid,
+      invalid: skipped.slice(),
+      rendered: out.length,
+      skipped,
     });
 
     setUnmatched((prev) => {
@@ -301,6 +327,7 @@ export default function MapPage() {
         {geoData && (
           <svg
             viewBox={`0 0 ${MAP_W} ${MAP_H}`}
+            preserveAspectRatio="xMidYMid meet"
             style={{
               display: "block",
               width: "100%",
@@ -313,7 +340,7 @@ export default function MapPage() {
               <path
                 key={p.key}
                 d={p.d}
-                fill={p.d ? COLOR(p.prob) : "#E7E5E0"}
+                fill={COLOR(p.prob)}
                 stroke="#ffffff"
                 strokeWidth={0.5}
                 onMouseEnter={() =>
@@ -357,9 +384,18 @@ export default function MapPage() {
       {/* Diagnostic panel */}
       {debug && (
         <div className="mt-4 space-y-1 rounded-lg border border-[#E7E5E0] bg-[#F8F7F4] p-3 text-xs font-mono text-[#57534E]">
-          <div>features: {debug.features} · paths with geometry: {debug.paths}</div>
-          <div>lon/lat bounds: {debug.lonLatBounds}</div>
-          <div>projected bounds: {debug.projectedBounds}</div>
+          <div>features total: {debug.total} · rendered: {debug.rendered}</div>
+          <div>valid geometry: {debug.valid} · skipped: {debug.skipped.length}</div>
+          {debug.skipped.length > 0 && (
+            <details>
+              <summary className="cursor-pointer">Skipped features:</summary>
+              <ul className="mt-1 space-y-0.5">
+                {debug.skipped.map((n, i) => (
+                  <li key={i}>— {n}</li>
+                ))}
+              </ul>
+            </details>
+          )}
         </div>
       )}
 
