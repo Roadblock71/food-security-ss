@@ -1,13 +1,24 @@
 "use client";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import ExportButtons from "@/components/ExportButtons";
 import { PredictionRecord } from "@/lib/exporters";
+import countiesJson from "@/data/counties.json";
 
-const STATES = [
-  "Abyei", "Central Equatoria", "Eastern Equatoria", "Jonglei", "Lakes",
-  "Northern Bahr El Ghazal", "Unity", "Upper Nile", "Warrap",
-  "Western Bahr El Ghazal", "Western Equatoria",
-];
+interface RawCounty {
+  state: string;
+  county: string;
+  population: number;
+  start_year: number;
+  start_month: number;
+  prior_period_ipc_phase: string;
+  prior_period_phase3plus_pct: number;
+  prior_year_cereal_production_tonnes: number;
+  prior_year_cereal_gap_tonnes: number;
+}
+
+const COUNTIES = countiesJson as RawCounty[];
+
+const STATES = Array.from(new Set(COUNTIES.map((c) => c.state))).sort();
 
 const PHASES = ["Minimal", "Stressed", "Crisis", "Emergency", "Catastrophe"];
 
@@ -30,25 +41,45 @@ const inputCls =
   "text-[#1C1917] outline-none transition-colors " +
   "focus:border-[#1E3A8A] focus:ring-1 focus:ring-[#1E3A8A]/30";
 
-const labelCls = "block text-sm font-medium text-[#57534E]";
+const labelCls = "block text-xs font-medium text-[#57534E] sm:text-sm";
+
+function getDefaults(c: RawCounty) {
+  return {
+    state: c.state,
+    county: c.county,
+    population: c.population,
+    start_year: c.start_year,
+    start_month: c.start_month,
+    prior_period_ipc_phase: c.prior_period_ipc_phase,
+    prior_period_phase3plus_pct: c.prior_period_phase3plus_pct,
+    prior_year_cereal_production_tonnes: c.prior_year_cereal_production_tonnes,
+    prior_year_cereal_gap_tonnes: c.prior_year_cereal_gap_tonnes,
+  };
+}
 
 export default function PredictPage() {
-  const [form, setForm] = useState({
-    state: "Jonglei",
-    county: "Akobo",
-    population: 183725,
-    start_year: 2026,
-    start_month: 4,
-    prior_period_ipc_phase: "Crisis",
-    prior_period_phase3plus_pct: 54.7,
-    prior_year_cereal_production_tonnes: 12258,
-    prior_year_cereal_gap_tonnes: -14231,
-  });
-
+  const [form, setForm] = useState(() => getDefaults(COUNTIES[0]));
   const [result, setResult] = useState<{ probability: number; band: string } | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [session, setSession] = useState<PredictionRecord[]>([]);
+
+  const countiesInState = useMemo(
+    () => COUNTIES.filter((c) => c.state === form.state),
+    [form.state]
+  );
+
+  function pickCounty(countyName: string) {
+    const c = COUNTIES.find(
+      (x) => x.state === form.state && x.county === countyName
+    );
+    if (c) setForm(getDefaults(c));
+  }
+
+  function pickState(stateName: string) {
+    const firstInState = COUNTIES.find((c) => c.state === stateName);
+    if (firstInState) setForm(getDefaults(firstInState));
+  }
 
   function toRecord(band: string, probability: number): PredictionRecord {
     return {
@@ -92,32 +123,30 @@ export default function PredictPage() {
     setSession((prev) => prev.filter((_, idx) => idx !== i));
 
   return (
-    <main className="mx-auto max-w-3xl px-6 py-10 pb-40">
-      {/* Header */}
+    <main className="mx-auto max-w-3xl px-4 py-8 pb-40 sm:px-6 sm:py-10">
       <header>
         <p className="text-xs font-semibold uppercase tracking-widest text-[#1E3A8A]">
           Risk assessment
         </p>
-        <h1 className="mt-2 text-3xl font-bold tracking-tight text-[#1C1917]">
+        <h1 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
           Predict county-level food insecurity
         </h1>
         <p className="mt-2 text-sm text-[#57534E]">
-          Enter prior-period context for a county. The model returns a
-          probability of IPC Phase 3+ in the target period.
+          Pick a county — the form auto-fills with its most recent known
+          context. Adjust any field and submit.
         </p>
       </header>
 
-      {/* Form card */}
       <form
         onSubmit={submit}
-        className="mt-8 rounded-2xl border border-[#E7E5E0] bg-white p-6 shadow-sm"
+        className="mt-6 rounded-2xl border border-[#E7E5E0] bg-white p-5 shadow-sm sm:mt-8 sm:p-6"
       >
-        <div className="grid grid-cols-2 gap-4">
-          <label className="col-span-2 md:col-span-1">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <label className="sm:col-span-1">
             <span className={labelCls}>State</span>
             <select
               value={form.state}
-              onChange={(e) => setForm({ ...form, state: e.target.value })}
+              onChange={(e) => pickState(e.target.value)}
               className={inputCls}
             >
               {STATES.map((s) => (
@@ -126,14 +155,17 @@ export default function PredictPage() {
             </select>
           </label>
 
-          <label className="col-span-2 md:col-span-1">
+          <label className="sm:col-span-1">
             <span className={labelCls}>County</span>
-            <input
+            <select
               value={form.county}
-              onChange={(e) => setForm({ ...form, county: e.target.value })}
+              onChange={(e) => pickCounty(e.target.value)}
               className={inputCls}
-              placeholder="e.g. Akobo"
-            />
+            >
+              {countiesInState.map((c) => (
+                <option key={c.county}>{c.county}</option>
+              ))}
+            </select>
           </label>
 
           <label>
@@ -180,7 +212,7 @@ export default function PredictPage() {
           </label>
 
           <label>
-            <span className={labelCls}>Target period (year / month)</span>
+            <span className={labelCls}>Target period</span>
             <div className="mt-1 flex gap-2">
               <input
                 type="number"
@@ -188,7 +220,7 @@ export default function PredictPage() {
                 onChange={(e) =>
                   setForm({ ...form, start_year: +e.target.value })
                 }
-                className={`${inputCls} mt-0`}
+                className="w-full rounded-md border border-[#E7E5E0] bg-white px-3 py-2 text-sm outline-none focus:border-[#1E3A8A] focus:ring-1 focus:ring-[#1E3A8A]/30"
               />
               <input
                 type="number"
@@ -196,12 +228,12 @@ export default function PredictPage() {
                 onChange={(e) =>
                   setForm({ ...form, start_month: +e.target.value })
                 }
-                className={`${inputCls} mt-0`}
+                className="w-full rounded-md border border-[#E7E5E0] bg-white px-3 py-2 text-sm outline-none focus:border-[#1E3A8A] focus:ring-1 focus:ring-[#1E3A8A]/30"
               />
             </div>
           </label>
 
-          <label className="col-span-2">
+          <label className="sm:col-span-2">
             <span className={labelCls}>Prior cereal production (t)</span>
             <input
               type="number"
@@ -216,7 +248,7 @@ export default function PredictPage() {
             />
           </label>
 
-          <label className="col-span-2">
+          <label className="sm:col-span-2">
             <span className={labelCls}>Prior cereal gap (t)</span>
             <input
               type="number"
@@ -241,7 +273,6 @@ export default function PredictPage() {
         </button>
       </form>
 
-      {/* Error */}
       {error && (
         <div className="mt-6 rounded-xl border border-[#FECACA] bg-[#FEF2F2] p-4 text-sm text-[#991B1B]">
           <p className="font-medium">Prediction failed</p>
@@ -249,21 +280,20 @@ export default function PredictPage() {
         </div>
       )}
 
-      {/* Result card */}
       {result && (
         <div
-          className={`mt-8 rounded-2xl border p-6 shadow-sm ${BAND_BG[result.band]}`}
+          className={`mt-8 rounded-2xl border p-5 shadow-sm sm:p-6 ${BAND_BG[result.band]}`}
         >
           <div className="text-xs font-semibold uppercase tracking-widest text-[#57534E]">
             Predicted risk of IPC Phase 3+
           </div>
           <div
-            className={`mt-2 font-mono text-6xl font-semibold tracking-tight ${BAND_COLOR[result.band]}`}
+            className={`mt-2 font-mono text-5xl font-semibold tracking-tight sm:text-6xl ${BAND_COLOR[result.band]}`}
           >
             {(result.probability * 100).toFixed(1)}%
           </div>
-          <div className={`mt-3 text-lg font-medium ${BAND_COLOR[result.band]}`}>
-            {result.band} risk
+          <div className={`mt-3 text-base font-medium sm:text-lg ${BAND_COLOR[result.band]}`}>
+            {result.band} risk — {form.county}, {form.state}
           </div>
 
           <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-black/5 pt-4">
@@ -278,12 +308,11 @@ export default function PredictPage() {
         </div>
       )}
 
-      {/* Session — sticky footer */}
       {session.length > 0 && (
-        <div className="fixed inset-x-0 bottom-0 z-20 border-t border-[#E7E5E0] bg-white/95 backdrop-blur shadow-[0_-8px_24px_rgba(0,0,0,0.06)]">
-          <div className="mx-auto max-w-3xl px-6 py-4">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="text-sm font-medium text-[#1C1917]">
+        <div className="fixed inset-x-0 bottom-0 z-20 border-t border-[#E7E5E0] bg-white/95 shadow-[0_-8px_24px_rgba(0,0,0,0.06)] backdrop-blur">
+          <div className="mx-auto max-w-3xl px-4 py-3 sm:px-6 sm:py-4">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div className="text-xs font-medium text-[#1C1917] sm:text-sm">
                 📋 {session.length} prediction
                 {session.length !== 1 ? "s" : ""} in report
               </div>
@@ -298,7 +327,7 @@ export default function PredictPage() {
               </div>
             </div>
 
-            <ul className="mt-3 max-h-32 overflow-y-auto text-xs">
+            <ul className="mt-2 max-h-28 overflow-y-auto text-xs sm:mt-3 sm:max-h-32">
               {session.map((r, i) => (
                 <li
                   key={i}
@@ -312,8 +341,8 @@ export default function PredictPage() {
                     <span className={`font-medium ${BAND_COLOR[r.band]}`}>
                       {(r.probability * 100).toFixed(1)}% {r.band}
                     </span>
-                    <span className="text-[#A8A29E]">·</span>
-                    <span>{r.period}</span>
+                    <span className="hidden text-[#A8A29E] sm:inline">·</span>
+                    <span className="hidden sm:inline">{r.period}</span>
                   </span>
                   <button
                     onClick={() => removeFromSession(i)}
