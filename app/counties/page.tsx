@@ -6,7 +6,7 @@ export default function CountiesPage() {
     <main className="px-4 py-6 sm:px-6 sm:py-10">
       <header className="mb-6">
         <p className="text-xs font-semibold uppercase tracking-widest text-[#1E3A8A]">
-          County intelligence
+          Explorer
         </p>
         <h1 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
           All counties

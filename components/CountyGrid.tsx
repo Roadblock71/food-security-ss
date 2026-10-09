@@ -27,11 +27,8 @@ interface Prediction { probability: number; band: string }
 const COUNTIES = countiesJson as RawCounty[];
 
 interface Props {
-  /** Which set of tabs to expose */
-  mode?: "all" | "warnings";
-  /** Give a callback so parent pages (like the dashboard) can know the counts */
+  mode?: "all" | "alerts";
   onScored?: (scored: ScoredCounty[]) => void;
-  /** Show the state filter dropdown */
   showFilters?: boolean;
 }
 
@@ -44,8 +41,8 @@ export default function CountyGrid({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [stateFilter, setStateFilter] = useState<string>("All states");
-  const [tab, setTab] = useState<"all" | "warnings" | "watching">(
-    mode === "warnings" ? "warnings" : "all"
+  const [tab, setTab] = useState<"all" | "alerts" | "watching">(
+    mode === "alerts" ? "alerts" : "all"
   );
 
   const { watched, toggle, hydrated } = useWatchlist();
@@ -102,18 +99,25 @@ export default function CountyGrid({
     [scored]
   );
 
+  // Counties currently in scope given the state dropdown
+  const inScope = useMemo(() => {
+    if (stateFilter === "All states") return scored;
+    return scored.filter((c) => c.state === stateFilter);
+  }, [scored, stateFilter]);
+
+  // Badges — computed against the current state scope
+  const alertsCount = inScope.filter((c) => c.probability >= 0.85).length;
+  const watchingCount = hydrated
+    ? inScope.filter((c) => watched.has(countyKey(c.state, c.county))).length
+    : 0;
+
   const visible = useMemo(() => {
-    let base = scored;
-    if (tab === "warnings") base = base.filter((c) => c.probability >= 0.85);
+    let base = inScope;
+    if (tab === "alerts") base = base.filter((c) => c.probability >= 0.85);
     if (tab === "watching")
       base = base.filter((c) => watched.has(countyKey(c.state, c.county)));
-    if (stateFilter !== "All states")
-      base = base.filter((c) => c.state === stateFilter);
     return [...base].sort((a, b) => b.probability - a.probability);
-  }, [scored, tab, stateFilter, watched]);
-
-  const warningsCount = scored.filter((c) => c.probability >= 0.85).length;
-  const watchingCount = hydrated ? watched.size : 0;
+  }, [inScope, tab, watched]);
 
   return (
     <div>
@@ -123,7 +127,10 @@ export default function CountyGrid({
           <p className="mt-1 text-xs text-[#57534E] sm:text-sm">
             {loading
               ? "Scoring all 79 counties…"
-              : `${visible.length} of ${scored.length} counties`}
+              : stateFilter === "All states"
+                ? `${visible.length} of ${scored.length} counties`
+                : `${visible.length} in ${stateFilter} (${inScope.length} total)`
+            }
           </p>
         </div>
 
@@ -141,19 +148,18 @@ export default function CountyGrid({
         )}
       </div>
 
-      {/* Tabs */}
       <div className="mt-4 flex flex-wrap gap-1.5">
         {(
           [
-            { id: "all",       label: "All counties",     icon: IconMap },
-            { id: "warnings",  label: "Early warnings",   icon: IconAlert },
-            { id: "watching",  label: "Close monitoring", icon: IconEye },
+            { id: "all",      label: "All counties",     icon: IconMap },
+            { id: "alerts",   label: "Priority alerts",  icon: IconAlert },
+            { id: "watching", label: "Close monitoring", icon: IconEye },
           ] as const
         ).map((t) => {
           const Icon = t.icon;
           const active = tab === t.id;
           const badge =
-            t.id === "warnings" ? warningsCount :
+            t.id === "alerts" ? alertsCount :
             t.id === "watching" ? watchingCount : 0;
           return (
             <button
@@ -173,7 +179,7 @@ export default function CountyGrid({
                   className={`rounded-full px-1.5 text-[10px] ${
                     active
                       ? "bg-white/25"
-                      : t.id === "warnings"
+                      : t.id === "alerts"
                       ? "bg-[#FEF2F2] text-[#991B1B]"
                       : "bg-[#FEF3C7] text-[#B45309]"
                   }`}
@@ -205,8 +211,8 @@ export default function CountyGrid({
         <>
           {visible.length === 0 ? (
             <div className="mt-6 rounded-xl border border-dashed border-[#E7E5E0] p-10 text-center text-sm text-[#78716C]">
-              {tab === "watching" && "Your watchlist is empty. Star counties to add them here."}
-              {tab === "warnings" && "No counties are currently flagged as very high risk."}
+              {tab === "watching" && "No starred counties in the current scope."}
+              {tab === "alerts" && "No counties flagged as very high risk in the current scope."}
               {tab === "all" && "No counties match the current filter."}
             </div>
           ) : (

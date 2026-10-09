@@ -8,12 +8,12 @@ import {
 } from "./Icons";
 
 const LINKS = [
-  { href: "/",          label: "Dashboard",         icon: IconHome },
-  { href: "/predict",   label: "Risk Predictor",    icon: IconGauge },
-  { href: "/counties",  label: "County Intelligence", icon: IconSearch },
-  { href: "/atlas",     label: "Risk Atlas",        icon: IconMap },
-  { href: "/warnings",  label: "Early Warning",     icon: IconAlert },
-  { href: "/about",     label: "Model & Methodology", icon: IconInfo },
+  { href: "/",          label: "Overview",    icon: IconHome },
+  { href: "/predict",   label: "Assess",      icon: IconGauge },
+  { href: "/counties",  label: "Explorer",    icon: IconSearch },
+  { href: "/atlas",     label: "Regions",     icon: IconMap },
+  { href: "/warnings",  label: "Alerts",      icon: IconAlert },
+  { href: "/about",     label: "Methodology", icon: IconInfo },
 ];
 
 interface Props {
@@ -24,7 +24,6 @@ export default function Sidebar({ warningCount = 0 }: Props) {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Close mobile drawer when route changes
   useEffect(() => { setMobileOpen(false); }, [pathname]);
 
   const NavList = (
@@ -94,14 +93,12 @@ export default function Sidebar({ warningCount = 0 }: Props) {
 
   return (
     <>
-      {/* ── Desktop sidebar (fixed left rail) ── */}
       <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col border-r border-[#E7E5E0] bg-white px-4 py-6 lg:flex">
         {Header}
         {NavList}
         <div className="mt-auto">{Footer}</div>
       </aside>
 
-      {/* ── Mobile top bar ── */}
       <div className="sticky top-0 z-30 flex items-center justify-between border-b border-[#E7E5E0] bg-[#F8F7F4]/90 px-4 py-3 backdrop-blur lg:hidden">
         <Link href="/" className="flex items-center gap-2">
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-[#1E3A8A] text-white">
@@ -121,7 +118,6 @@ export default function Sidebar({ warningCount = 0 }: Props) {
         </button>
       </div>
 
-      {/* ── Mobile drawer ── */}
       {mobileOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
           <div

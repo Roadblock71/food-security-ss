@@ -32,7 +32,7 @@ const BAND_COLOR: Record<string, string> = {
   "Very High": "#B91C1C",
 };
 
-export default function Dashboard() {
+export default function Overview() {
   const [scored, setScored] = useState<ScoredCounty[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -78,33 +78,31 @@ export default function Dashboard() {
 
   const national = useMemo(() => {
     if (!scored.length)
-      return { avg: 0, veryHigh: 0, high: 0, lowMod: 0, top: [] as ScoredCounty[] };
+      return { avg: 0, veryHigh: 0, high: 0, top: [] as ScoredCounty[] };
     const avg = scored.reduce((s, c) => s + c.probability, 0) / scored.length;
     const sorted = [...scored].sort((a, b) => b.probability - a.probability);
     return {
       avg,
       veryHigh: scored.filter((c) => c.probability >= 0.85).length,
       high: scored.filter((c) => c.probability >= 0.60 && c.probability < 0.85).length,
-      lowMod: scored.filter((c) => c.probability < 0.60).length,
       top: sorted.slice(0, 5),
     };
   }, [scored]);
 
   return (
     <main className="px-4 py-6 sm:px-6 sm:py-10">
-      {/* ─── Hero ─────────────────────────────────────────────── */}
       <section className="grid gap-6 rounded-3xl border border-[#E7E5E0] bg-white p-6 shadow-sm sm:p-8 md:grid-cols-[minmax(0,1fr)_300px] md:items-center">
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-[#1E3A8A]">
-            National command view · 2026-04
+            National overview · 2026-04
           </p>
           <h1 className="mt-3 text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
-            Food security intelligence{" "}
-            <span className="text-[#1E3A8A]">for South Sudan</span>
+            Food security risk,{" "}
+            <span className="text-[#1E3A8A]">at a glance</span>
           </h1>
           <p className="mt-4 max-w-2xl text-sm text-[#57534E] sm:text-base">
-            Live risk scores for all 79 counties. A complement to the
-            IPC&rsquo;s expert-led classification process.
+            Live risk scores for all 79 counties. An additional signal for
+            analysts and responders — not a replacement for IPC.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
@@ -117,7 +115,7 @@ export default function Dashboard() {
               href="/atlas"
               className="inline-flex items-center gap-2 rounded-lg border border-[#E7E5E0] bg-white px-5 py-2.5 text-sm font-medium hover:bg-[#F8F7F4]"
             >
-              <IconMap className="h-4 w-4" /> View atlas
+              <IconMap className="h-4 w-4" /> Regional view
             </Link>
           </div>
         </div>
@@ -130,7 +128,6 @@ export default function Dashboard() {
         </div>
       </section>
 
-      {/* ─── KPIs ─────────────────────────────────────────────── */}
       <section className="mt-6 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         <MetricCard
           icon={<IconAlert className="h-4 w-4" />}
@@ -159,16 +156,15 @@ export default function Dashboard() {
         />
         <MetricCard
           icon={<IconTrend className="h-4 w-4" />}
-          label="Validation AUC"
-          value="0.964"
-          sub="Zindi public leaderboard"
+          label="Mean AUC"
+          value="0.978"
+          sub="Walk-forward validation"
           accent="bg-[#EEF2FF] text-[#1E3A8A]"
-          bar={0.964}
+          bar={0.978}
           barColor="#1E3A8A"
         />
       </section>
 
-      {/* ─── Top 5 alerts ─────────────────────────────────────── */}
       <section className="mt-8 rounded-3xl border border-[#E7E5E0] bg-white p-5 shadow-sm sm:p-6">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
@@ -183,7 +179,7 @@ export default function Dashboard() {
             href="/warnings"
             className="inline-flex items-center gap-1.5 rounded-md border border-[#E7E5E0] bg-white px-3 py-1.5 text-xs font-medium hover:bg-[#F8F7F4]"
           >
-            View all warnings <IconArrow className="h-3.5 w-3.5" />
+            View all alerts <IconArrow className="h-3.5 w-3.5" />
           </Link>
         </div>
 

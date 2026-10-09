@@ -34,7 +34,7 @@ const BAND_TINT: Record<string, string> = {
   "Very High": "bg-[#FEF2F2] text-[#991B1B] border-[#FECACA]",
 };
 
-export default function AtlasPage() {
+export default function RegionsPage() {
   const [scored, setScored] = useState<ScoredCounty[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -78,7 +78,6 @@ export default function AtlasPage() {
     })();
   }, []);
 
-  // Group counties by state, sorted by avg risk desc within each state
   const grouped = useMemo(() => {
     const byState = new Map<string, ScoredCounty[]>();
     scored.forEach((c) => {
@@ -104,14 +103,14 @@ export default function AtlasPage() {
     <main className="px-4 py-6 sm:px-6 sm:py-10">
       <header className="mb-6">
         <p className="text-xs font-semibold uppercase tracking-widest text-[#1E3A8A]">
-          Risk atlas
+          Regional view
         </p>
         <h1 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
           State &amp; county matrix
         </h1>
         <p className="mt-2 max-w-2xl text-sm text-[#57534E]">
           A data-driven grid of every state and its counties — sorted by
-          average predicted risk. No boundary files needed.
+          average predicted risk.
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <select
@@ -222,13 +221,12 @@ export default function AtlasPage() {
       )}
 
       <section className="mt-8 rounded-3xl border border-[#E7E5E0] bg-white p-5 shadow-sm sm:p-6">
-        <h2 className="text-lg font-semibold tracking-tight">What am I looking at?</h2>
+        <h2 className="text-lg font-semibold tracking-tight">How to read this</h2>
         <p className="mt-2 text-sm text-[#57534E]">
-          This is a data-driven substitute for a geographic map. Each card is a
-          state, and each chip inside it is a county with its predicted risk.
-          States are sorted by average risk — the highest-risk states appear
-          first. Colours follow the standard IPC risk bands (green &lt; 35%,
-          amber 35–60%, orange 60–85%, red ≥ 85%).
+          Each card is a state. Chips inside it are the counties, sorted by
+          predicted risk. States are ranked from highest to lowest average risk.
+          Colours follow the standard IPC risk bands — green under 35%, amber
+          35–60%, orange 60–85%, red 85% and above.
         </p>
         <div className="mt-4">
           <Link

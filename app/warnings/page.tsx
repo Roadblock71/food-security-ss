@@ -3,12 +3,12 @@ import Link from "next/link";
 import CountyGrid from "@/components/CountyGrid";
 import { IconArrow } from "@/components/Icons";
 
-export default function WarningsPage() {
+export default function AlertsPage() {
   return (
     <main className="px-4 py-6 sm:px-6 sm:py-10">
       <header className="mb-6">
         <p className="text-xs font-semibold uppercase tracking-widest text-[#991B1B]">
-          Early warning
+          Priority alerts
         </p>
         <h1 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
           Counties flagged for closer assessment
@@ -35,7 +35,7 @@ export default function WarningsPage() {
       </header>
 
       <div className="rounded-3xl border border-[#E7E5E0] bg-white p-5 shadow-sm sm:p-6">
-        <CountyGrid mode="warnings" showFilters={true} />
+        <CountyGrid mode="alerts" showFilters={true} />
       </div>
     </main>
   );
