@@ -1,8 +1,6 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
-import {
-  ComposableMap, Geographies, Geography, ZoomableGroup,
-} from "react-simple-maps";
+import { geoMercator, geoPath } from "d3-geo";
 import ExportButtons from "@/components/ExportButtons";
 import { PredictionRecord } from "@/lib/exporters";
 import countiesJson from "@/data/counties.json";
@@ -52,6 +50,8 @@ export default function MapPage() {
   const [apiError, setApiError] = useState<string | null>(null);
   const [hover, setHover] = useState<string | null>(null);
   const [unmatched, setUnmatched] = useState<string[]>([]);
+  const [geoData, setGeoData] = useState<any>(null);
+  const [geoError, setGeoError] = useState<string | null>(null);
 
   const normToCounty = useMemo(() => {
     const map: Record<string, string> = {};
@@ -59,10 +59,21 @@ export default function MapPage() {
     return map;
   }, []);
 
+  // ── Load the GeoJSON manually (avoids react-simple-maps fetch quirks) ──
+  useEffect(() => {
+    fetch("/ss_admin2.geojson")
+      .then((r) => {
+        if (!r.ok) throw new Error(`GeoJSON HTTP ${r.status}`);
+        return r.json();
+      })
+      .then((j) => setGeoData(j))
+      .catch((err) => setGeoError(String(err)));
+  }, []);
+
+  // ── Fetch predictions ──
   useEffect(() => {
     (async () => {
       try {
-        // Split into two batches to stay under serverless timeout on the free tier
         const mid = Math.ceil(COUNTIES.length / 2);
         const batch1 = COUNTIES.slice(0, mid).map((c) => c.payload);
         const batch2 = COUNTIES.slice(mid).map((c) => c.payload);
@@ -80,18 +91,12 @@ export default function MapPage() {
           }),
         ]);
 
-        if (!r1.ok) throw new Error(`Batch 1 failed: HTTP ${r1.status}`);
-        if (!r2.ok) throw new Error(`Batch 2 failed: HTTP ${r2.status}`);
+        if (!r1.ok) throw new Error(`Batch 1 HTTP ${r1.status}`);
+        if (!r2.ok) throw new Error(`Batch 2 HTTP ${r2.status}`);
 
         const p1: Prediction[] = await r1.json();
         const p2: Prediction[] = await r2.json();
         const preds: Prediction[] = [...p1, ...p2];
-
-        if (preds.length !== COUNTIES.length) {
-          throw new Error(
-            `Expected ${COUNTIES.length} predictions, got ${preds.length}`
-          );
-        }
 
         const byCounty: Record<string, Prediction> = {};
         const recs: PredictionRecord[] = [];
@@ -121,6 +126,57 @@ export default function MapPage() {
       }
     })();
   }, []);
+
+  // ── Build the SVG paths once we have both GeoJSON and predictions ──
+  const MAP_W = 800;
+  const MAP_H = 700;
+
+  const paths = useMemo(() => {
+    if (!geoData?.features) return [];
+
+    const projection = geoMercator()
+      .center([30, 7.5])
+      .scale(1300)
+      .translate([MAP_W / 2, MAP_H / 2]);
+    const pathGen = geoPath(projection);
+
+    const unmatchedNames: string[] = [];
+
+    const out = geoData.features.map((feat: any, i: number) => {
+      const props = feat.properties || {};
+      const rawName =
+        props.admin2Name ||
+        props.ADM2_EN ||
+        props.ADM1_EN ||
+        props.name ||
+        "";
+      const matchedCounty = normToCounty[normalize(rawName)];
+      if (!matchedCounty) unmatchedNames.push(rawName);
+
+      const pred = matchedCounty ? data[matchedCounty] : undefined;
+      const prob = pred?.probability ?? 0;
+      const band = pred?.band ?? "no data";
+
+      return {
+        key: `${i}-${rawName}`,
+        d: pathGen(feat) || "",
+        rawName,
+        matchedCounty,
+        prob,
+        band,
+      };
+    });
+
+    // Update unmatched state (only when it changes)
+    setUnmatched((prev) => {
+      const same =
+        prev.length === unmatchedNames.length &&
+        prev.every((n, i) => n === unmatchedNames[i]);
+      return same ? prev : unmatchedNames;
+    });
+
+    return out;
+  }, [geoData, data, normToCounty]);
 
   const hasData = Object.keys(data).length > 0;
 
@@ -152,64 +208,52 @@ export default function MapPage() {
         <div className="mt-8 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-800">
           <p className="font-medium">Failed to load predictions</p>
           <p className="mt-1 font-mono text-xs">{apiError}</p>
-          <button
-            onClick={() => window.location.reload()}
-            className="mt-3 rounded-md border border-red-300 bg-white px-3 py-1.5 text-xs hover:bg-red-100"
-          >
-            Retry
-          </button>
+        </div>
+      )}
+
+      {geoError && (
+        <div className="mt-8 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-800">
+          <p className="font-medium">Failed to load map geometry</p>
+          <p className="mt-1 font-mono text-xs">{geoError}</p>
+          <p className="mt-2 text-xs">
+            Expected file at <code>/ss_admin2.geojson</code>. Make sure it exists in{" "}
+            <code>public/</code>.
+          </p>
         </div>
       )}
 
       <div className="mt-8 rounded-xl border bg-white p-4 shadow-sm">
-        <ComposableMap
-          projection="geoMercator"
-          projectionConfig={{ center: [30, 7.5], scale: 1800 }}
-          width={800}
-          height={700}
-        >
-          <ZoomableGroup>
-            <Geographies geography="/ss_admin2.geojson">
-              {({ geographies }: any) =>
-                geographies.map((geo: any) => {
-                  const raw =
-                    geo.properties.admin2Name ||
-                    geo.properties.ADM2_EN ||
-                    geo.properties.ADM1_EN ||
-                    geo.properties.name ||
-                    "";
-                  const matchedCounty = normToCounty[normalize(raw)];
-                  const pred = matchedCounty ? data[matchedCounty] : undefined;
-                  const prob = pred?.probability ?? 0;
-                  const band = pred?.band ?? "no data";
+        {!geoData && !geoError && (
+          <p className="py-32 text-center text-neutral-500">Loading map…</p>
+        )}
 
-                  return (
-                    <Geography
-                      key={geo.rsmKey}
-                      geography={geo}
-                      fill={COLOR(prob)}
-                      stroke="#fff"
-                      strokeWidth={0.5}
-                      onMouseEnter={() => {
-                        if (!matchedCounty) {
-                          setHover(`${raw} — no prediction match`);
-                          setUnmatched((u) =>
-                            u.includes(raw) ? u : [...u, raw]
-                          );
-                        } else {
-                          setHover(
-                            `${matchedCounty} — ${(prob * 100).toFixed(0)}% (${band})`
-                          );
-                        }
-                      }}
-                      onMouseLeave={() => setHover(null)}
-                    />
+        {geoData && (
+          <svg
+            viewBox={`0 0 ${MAP_W} ${MAP_H}`}
+            width="100%"
+            height="auto"
+            style={{ display: "block", background: "#f8fafc" }}
+          >
+            {paths.map((p) => (
+              <path
+                key={p.key}
+                d={p.d}
+                fill={COLOR(p.prob)}
+                stroke="#ffffff"
+                strokeWidth={0.6}
+                onMouseEnter={() => {
+                  setHover(
+                    p.matchedCounty
+                      ? `${p.matchedCounty} — ${(p.prob * 100).toFixed(0)}% (${p.band})`
+                      : `${p.rawName} — no prediction match`
                   );
-                })
-              }
-            </Geographies>
-          </ZoomableGroup>
-        </ComposableMap>
+                }}
+                onMouseLeave={() => setHover(null)}
+                style={{ cursor: "pointer", transition: "opacity 0.15s" }}
+              />
+            ))}
+          </svg>
+        )}
 
         {hover && (
           <div className="mt-2 text-center font-mono text-sm text-neutral-700">
@@ -243,26 +287,22 @@ export default function MapPage() {
       )}
 
       {unmatched.length > 0 && (
-        <details
-          className="mt-4 rounded-lg border border-yellow-200 bg-yellow-50 p-4 text-sm"
-          open
-        >
-          <summary className="cursor-pointer font-medium text-yellow-900">
+        <div className="mt-4 rounded-lg border border-yellow-200 bg-yellow-50 p-4 text-sm">
+          <p className="font-medium text-yellow-900">
             ⚠ {unmatched.length} GeoJSON name
             {unmatched.length !== 1 ? "s" : ""} could not be matched
-          </summary>
+          </p>
           <ul className="mt-3 grid grid-cols-2 gap-1 font-mono text-xs">
-            {unmatched.map((name) => (
-              <li key={name} className="text-yellow-900">
+            {unmatched.map((name, i) => (
+              <li key={`${name}-${i}`} className="text-yellow-900">
                 {name}
               </li>
             ))}
           </ul>
           <p className="mt-3 text-xs text-yellow-800">
-            These render gray. Add a rule to the <code>normalize()</code> function
-            above if needed.
+            These render gray. Add a rule to <code>normalize()</code> if needed.
           </p>
-        </details>
+        </div>
       )}
     </main>
   );
