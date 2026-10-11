@@ -1,26 +1,56 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────────────────────────
+   Force light-mode rendering for the entire app, regardless of
+   the user's OS/browser preference. This app only ships a light
+   theme; without these rules, native form controls (select
+   dropdowns, input text, scrollbars) render in dark mode when
+   the OS is dark, causing low-contrast text and dark-on-dark
+   select menus.
+   ───────────────────────────────────────────────────────────── */
+
+html {
+  color-scheme: light;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #F8F7F4;
+  --foreground: #1C1917;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Native form controls — always render light */
+select,
+input,
+textarea,
+button {
+  color-scheme: light;
+}
+
+/* Explicit light text + background on selects and their option menus.
+   The option popup is rendered by the OS and would otherwise inherit
+   the system dark theme. */
+select,
+select option {
+  color: #1C1917;
+  background-color: #ffffff;
+}
+
+/* Placeholder text stays visible on light inputs */
+input::placeholder,
+textarea::placeholder {
+  color: #A8A29E;
+  opacity: 1;
+}
+
+/* Smooth the transition when the user interacts */
+select,
+input {
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
